@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Hangman.unity
     guid: 6397278a3256c644395f1ed0cab3a8d7
+  - enabled: 1
+    path: Assets/Scenes/MatchPairs.unity
+    guid: f99667fec4e9ffc4e9f291dd130b10f6
   m_configObjects: {}

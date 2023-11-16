@@ -421,6 +421,7 @@ MonoBehaviour:
   scenes:
   - SentenceAssemble
   - Hangman
+  - MatchPairs
   parent: {fileID: 1711482757}
 --- !u!1 &1368792361
 GameObject:
