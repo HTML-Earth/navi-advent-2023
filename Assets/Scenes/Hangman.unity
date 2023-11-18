@@ -550,10 +550,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HangMan
       objectReference: {fileID: 0}
-    - target: {fileID: 5226793036974923534, guid: fef08ec2913e8d341977923ba7b72e10, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6158413828062450762, guid: fef08ec2913e8d341977923ba7b72e10, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

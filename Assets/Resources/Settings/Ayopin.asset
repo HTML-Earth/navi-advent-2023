@@ -18,3 +18,8 @@ MonoBehaviour:
   lexSlot: {r: 1, g: 0.62352943, b: 0, a: 1}
   lexSlotHover: {r: 1, g: 0.8419534, b: 0.5801887, a: 1}
   lexSlotDragging: {r: 0.4245283, g: 0.34386322, b: 0.21026166, a: 1}
+  unselectedWordBg: {r: 0.25882354, g: 0.58431375, b: 0.7921569, a: 1}
+  hoveredWordBg: {r: 0.33521718, g: 0.6660827, b: 0.8773585, a: 1}
+  selectedWordBg: {r: 0.18845673, g: 0.39010465, b: 0.5188679, a: 1}
+  matchedWordBg: {r: 0.6462264, g: 1, b: 0.9191076, a: 1}
+  failedWordBg: {r: 0.6037736, g: 0, b: 0.18123785, a: 1}
