@@ -65,7 +65,7 @@ public class CaseEnding : Lexeme
 
     public override string Root()
     {
-        throw new System.NotImplementedException();
+        return text;
     }
 
     public override int GetSlotCount()
@@ -79,6 +79,11 @@ public class CaseEnding : Lexeme
     }
 
     public override bool SlotIsOccupied(int slotIndex)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override Lexeme GetLexemeFromSlot(int slotIndex)
     {
         throw new System.NotImplementedException();
     }

@@ -9,8 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11c5e1606935441e8352e8c39a5b9fbe, type: 3}
-  m_Name: ei
+  m_Script: {fileID: 11500000, guid: 940d2e0dce65483196810a4f6bdf066f, type: 3}
+  m_Name: TOP
   m_EditorClassIdentifier: 
-  text: ei
-  position: 2
+  text: -RI
+  vowelEndings:
+  - ri
+  consonantEndings:
+  - "\xECri"
+  diphthongEndings:
+  - ri

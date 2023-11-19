@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff9a510b03834ad997802c941091ec70, type: 3}
-  m_Name: 3
+  m_Script: {fileID: 11500000, guid: 11c5e1606935441e8352e8c39a5b9fbe, type: 3}
+  m_Name: am
   m_EditorClassIdentifier: 
-  originalSentence: 
-  words: []
-  solutions: []
+  text: <am>
+  position: 1

@@ -9,13 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 940d2e0dce65483196810a4f6bdf066f, type: 3}
-  m_Name: Subjective
+  m_Script: {fileID: 11500000, guid: 041dc40229364223b1e8b75d2484cfd4, type: 3}
+  m_Name: "t\xEC"
   m_EditorClassIdentifier: 
-  text: SUBJ
-  vowelEndings:
-  - 
-  consonantEndings:
-  - 
-  diphthongEndings:
-  - 
+  text: "t\xEC-"

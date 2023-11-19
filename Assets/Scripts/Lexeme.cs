@@ -23,6 +23,7 @@ public abstract class Lexeme : ScriptableObject
     public abstract int GetSlotCount();
     public abstract bool SlotCanHoldLexeme(int slotIndex, Lexeme lexeme);
     public abstract bool SlotIsOccupied(int slotIndex);
+    public abstract Lexeme GetLexemeFromSlot(int slotIndex);
     public abstract void InsertLexeme(int slotIndex, Lexeme lexeme);
     public abstract void RemoveLexeme(int slotIndex);
     public abstract void OnInserted(Lexeme hostWord);

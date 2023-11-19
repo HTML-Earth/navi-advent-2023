@@ -30,6 +30,11 @@ public class Adposition : Lexeme
         throw new System.NotImplementedException();
     }
 
+    public override Lexeme GetLexemeFromSlot(int slotIndex)
+    {
+        throw new System.NotImplementedException();
+    }
+
     public override void InsertLexeme(int slotIndex, Lexeme lexeme)
     {
         throw new System.NotImplementedException();

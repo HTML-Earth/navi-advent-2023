@@ -22,12 +22,23 @@ public class LexemeInstance : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     
     int _slotCount;
     Dictionary<int, Lexeme> _insertedLexemes = new();
-    Dictionary<int, (RectTransform, Image)> _insertedLexemeHandles = new();
+    Dictionary<int, LexemeHandle> _insertedLexemeHandles = new();
+
+    struct LexemeHandle
+    {
+        public RectTransform t;
+        public Image image;
+        public Color bg;
+        public Color hover;
+        public Color dragging;
+    }
 
     int _hoverState = -1; // -1 = word itself, 0,1,2... are inserted lexes
     
     bool _isDraggable;
     bool _isInDropArea;
+
+    const int SlotOffsetY = 50;
     
     public Lexeme Lexeme => _lexeme;
     public float Width => _width;
@@ -49,23 +60,12 @@ public class LexemeInstance : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         _sentenceAssemble = sentenceAssemble;
         _lexeme = Instantiate(lexeme);
         _slotCount = _lexeme.GetSlotCount();
-        _text.text = _lexeme.Render();
+        
+        _text.text = _lexeme.CanBeStandaloneWord() ? _lexeme.Render() : _lexeme.Root();
 
-        _bgColor = lexeme switch
-        {
-            CaseEnding => Settings.current.ayopin.caseEndingBg,
-            _ => Settings.current.ayopin.nounBg
-        };
-        _bgHoverColor = lexeme switch
-        {
-            CaseEnding => Settings.current.ayopin.caseEndingBgHover,
-            _ => Settings.current.ayopin.nounBgHover
-        };
-        _bgDraggingColor = lexeme switch
-        {
-            CaseEnding => Settings.current.ayopin.caseEndingBgDragging,
-            _ => Settings.current.ayopin.nounBgDragging
-        };
+        _bgColor = Settings.current.ayopin.DefaultColorFromLexeme(lexeme);
+        _bgHoverColor = Settings.current.ayopin.HoverColorFromLexeme(lexeme);
+        _bgDraggingColor = Settings.current.ayopin.DraggingColorFromLexeme(lexeme);
 
         _image.color = _bgColor;
     }
@@ -78,7 +78,7 @@ public class LexemeInstance : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 
     public void Refresh()
     {
-        _text.text = _lexeme.Render();
+        _text.text = _lexeme.CanBeStandaloneWord() ? _lexeme.Render() : _lexeme.Root();
         Canvas.ForceUpdateCanvases();
         UpdateWidth();
     }
@@ -98,17 +98,31 @@ public class LexemeInstance : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 
                 if (!_insertedLexemes.ContainsKey(i) || _insertedLexemeHandles.ContainsKey(i))
                 {
-                    if (_insertedLexemeHandles.TryGetValue(i, out (RectTransform, Image) handle))
+                    if (_insertedLexemeHandles.TryGetValue(i, out var handle))
                     {
-                        handle.Item1.localPosition = new Vector3(slotPos, 35, 0);
+                        handle.t.localPosition = new Vector3(slotPos, SlotOffsetY, 0);
                     }
                     continue;
                 }
                 
                 var slot = Instantiate(_slotPrefab, transform);
-                slot.transform.localPosition = new Vector3(slotPos, 35, 0);
+                slot.transform.localPosition = new Vector3(slotPos, SlotOffsetY, 0);
                 
-                _insertedLexemeHandles.Add(i, (slot.GetComponent<RectTransform>(), slot.GetComponent<Image>()));
+                var handleColor = Settings.current.ayopin.DefaultColorFromLexeme(_insertedLexemes[i]);
+                var handleHoverColor = Settings.current.ayopin.HoverColorFromLexeme(_insertedLexemes[i]);
+                var handleDraggingColor = Settings.current.ayopin.DraggingColorFromLexeme(_insertedLexemes[i]);
+                
+                _insertedLexemeHandles.Add(i,
+                    new LexemeHandle
+                    {
+                        t = slot.GetComponent<RectTransform>(),
+                        image = slot.GetComponent<Image>(),
+                        bg = handleColor,
+                        hover = handleHoverColor,
+                        dragging = handleDraggingColor
+                    });
+
+                _insertedLexemeHandles[i].image.color = handleColor;
             }
         }
     }
@@ -160,7 +174,7 @@ public class LexemeInstance : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
             draggedOutWord.transform.position = transform.position;
             eventData.pointerDrag = draggedOutWord;
 
-            Destroy(_insertedLexemeHandles[_hoverState].Item1.gameObject);
+            Destroy(_insertedLexemeHandles[_hoverState].t.gameObject);
             _lexeme.RemoveLexeme(_hoverState);
             _insertedLexemes.Remove(_hoverState);
             _insertedLexemeHandles.Remove(_hoverState);
@@ -176,7 +190,7 @@ public class LexemeInstance : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         _image.color = _bgDraggingColor;
         foreach (var handle in _insertedLexemeHandles)
         {
-            handle.Value.Item2.color = Settings.current.ayopin.caseEndingBgDragging;
+            handle.Value.image.color = handle.Value.dragging;
         }
         
         transform.position = eventData.position - _dragOffset;
@@ -193,7 +207,7 @@ public class LexemeInstance : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         _image.color = _bgColor;
         foreach (var handle in _insertedLexemeHandles)
         {
-            handle.Value.Item2.color = Settings.current.ayopin.caseEndingBg;
+            handle.Value.image.color = handle.Value.bg;
         }
         
         _image.raycastTarget = true;
@@ -212,17 +226,17 @@ public class LexemeInstance : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     void UpdateHoverColor(Vector2 cursorPos)
     {
         bool hoveringOverHandle = false;
-        foreach (KeyValuePair<int, (RectTransform, Image)> handle in _insertedLexemeHandles)
+        foreach (var handle in _insertedLexemeHandles)
         {
-            if (RectTransformUtility.RectangleContainsScreenPoint(handle.Value.Item1, cursorPos))
+            if (RectTransformUtility.RectangleContainsScreenPoint(handle.Value.t, cursorPos))
             {
                 hoveringOverHandle = true;
                 _hoverState = handle.Key;
-                handle.Value.Item2.color = Settings.current.ayopin.caseEndingBgHover;
+                handle.Value.image.color = handle.Value.hover;
             }
             else
             {
-                handle.Value.Item2.color = Settings.current.ayopin.caseEndingBg;
+                handle.Value.image.color = handle.Value.bg;
             }
         }
 
@@ -242,7 +256,7 @@ public class LexemeInstance : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         _image.color = _bgColor;
         foreach (var handle in _insertedLexemeHandles)
         {
-            handle.Value.Item2.color = Settings.current.ayopin.caseEndingBg;
+            handle.Value.image.color = handle.Value.bg;
         }
     }
     

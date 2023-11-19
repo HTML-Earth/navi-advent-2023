@@ -1,13 +1,18 @@
-﻿public class Adverb : Lexeme
+﻿using UnityEngine;
+
+[CreateAssetMenu(menuName = "Lexemes/Prefix")]
+public class Prefix : Lexeme
 {
+    public string text = "";
+    
     public override string Render()
     {
-        throw new System.NotImplementedException();
+        return text.Replace("-", "");
     }
 
     public override string Root()
     {
-        throw new System.NotImplementedException();
+        return text;
     }
 
     public override int GetSlotCount()
@@ -42,16 +47,16 @@
 
     public override void OnInserted(Lexeme hostWord)
     {
-        throw new System.NotImplementedException();
+        //
     }
 
     public override void OnRemoved()
     {
-        throw new System.NotImplementedException();
+        //
     }
 
     public override bool CanBeStandaloneWord()
     {
-        return true;
+        return false;
     }
 }

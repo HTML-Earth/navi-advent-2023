@@ -66,6 +66,19 @@ public class Noun : Lexeme
         throw new Exception($"Invalid slot index ({slotIndex})");
     }
 
+    public override Lexeme GetLexemeFromSlot(int slotIndex)
+    {
+        switch (slotIndex)
+        {
+            case 0:
+                return _prefix;
+            case 1:
+                return _postfix;
+        }
+
+        throw new Exception($"Invalid slot index ({slotIndex})");
+    }
+
     public override void InsertLexeme(int slotIndex, Lexeme lexeme)
     {
         switch (slotIndex)
