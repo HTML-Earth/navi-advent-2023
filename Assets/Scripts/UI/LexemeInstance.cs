@@ -32,21 +32,42 @@ public class LexemeInstance : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     public Lexeme Lexeme => _lexeme;
     public float Width => _width;
 
+    Color _bgColor;
+    Color _bgHoverColor;
+    Color _bgDraggingColor;
+
     void Awake()
     {
         _wordPrefab = Resources.Load<GameObject>("Prefabs/Word");
         _slotPrefab = Resources.Load<GameObject>("Prefabs/slot");
         _text = transform.Find("text").GetComponent<TextMeshProUGUI>();
         _image = GetComponent<Image>();
-        _image.color = Settings.current.ayopin.wordBg;
     }
 
     public void SetLexeme(Lexeme lexeme, SentenceAssemble sentenceAssemble)
     {
-        this._sentenceAssemble = sentenceAssemble;
-        this._lexeme = Instantiate(lexeme);
-        _slotCount = this._lexeme.GetSlotCount();
-        _text.text = this._lexeme.Render();
+        _sentenceAssemble = sentenceAssemble;
+        _lexeme = Instantiate(lexeme);
+        _slotCount = _lexeme.GetSlotCount();
+        _text.text = _lexeme.Render();
+
+        _bgColor = lexeme switch
+        {
+            CaseEnding => Settings.current.ayopin.caseEndingBg,
+            _ => Settings.current.ayopin.nounBg
+        };
+        _bgHoverColor = lexeme switch
+        {
+            CaseEnding => Settings.current.ayopin.caseEndingBgHover,
+            _ => Settings.current.ayopin.nounBgHover
+        };
+        _bgDraggingColor = lexeme switch
+        {
+            CaseEnding => Settings.current.ayopin.caseEndingBgDragging,
+            _ => Settings.current.ayopin.nounBgDragging
+        };
+
+        _image.color = _bgColor;
     }
 
     public void OnInsertedLexeme(int slot, Lexeme lex)
@@ -130,6 +151,7 @@ public class LexemeInstance : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         else
         {
             GameObject draggedOutWord = Instantiate(_wordPrefab, _sentenceAssemble.wordBankArea);
+            draggedOutWord.GetComponent<Image>().raycastTarget = false;
             var lex = draggedOutWord.GetComponent<LexemeInstance>();
             lex.SetLexeme(_insertedLexemes[_hoverState], _sentenceAssemble);
             lex.SetDraggable(true);
@@ -151,10 +173,10 @@ public class LexemeInstance : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         if (!_isDraggable)
             return;
         
-        _image.color = Settings.current.ayopin.wordBgDragging;
+        _image.color = _bgDraggingColor;
         foreach (var handle in _insertedLexemeHandles)
         {
-            handle.Value.Item2.color = Settings.current.ayopin.lexSlotDragging;
+            handle.Value.Item2.color = Settings.current.ayopin.caseEndingBgDragging;
         }
         
         transform.position = eventData.position - _dragOffset;
@@ -168,10 +190,10 @@ public class LexemeInstance : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         if (!_isInDropArea)
             _sentenceAssemble.OnWordDroppedOutsideDropArea(this);
         
-        _image.color = Settings.current.ayopin.wordBg;
+        _image.color = _bgColor;
         foreach (var handle in _insertedLexemeHandles)
         {
-            handle.Value.Item2.color = Settings.current.ayopin.lexSlot;
+            handle.Value.Item2.color = Settings.current.ayopin.caseEndingBg;
         }
         
         _image.raycastTarget = true;
@@ -196,31 +218,31 @@ public class LexemeInstance : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
             {
                 hoveringOverHandle = true;
                 _hoverState = handle.Key;
-                handle.Value.Item2.color = Settings.current.ayopin.lexSlotHover;
+                handle.Value.Item2.color = Settings.current.ayopin.caseEndingBgHover;
             }
             else
             {
-                handle.Value.Item2.color = Settings.current.ayopin.lexSlot;
+                handle.Value.Item2.color = Settings.current.ayopin.caseEndingBg;
             }
         }
 
         if (hoveringOverHandle)
         {
-            _image.color = Settings.current.ayopin.wordBg;
+            _image.color = _bgColor;
             return;
         }
         
         _hoverState = -1;
-        _image.color = Settings.current.ayopin.wordBgHover;
+        _image.color = _bgHoverColor;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         _hoverState = -1;
-        _image.color = Settings.current.ayopin.wordBg;
+        _image.color = _bgColor;
         foreach (var handle in _insertedLexemeHandles)
         {
-            handle.Value.Item2.color = Settings.current.ayopin.lexSlot;
+            handle.Value.Item2.color = Settings.current.ayopin.caseEndingBg;
         }
     }
     

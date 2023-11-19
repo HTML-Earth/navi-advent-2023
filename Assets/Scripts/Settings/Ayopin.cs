@@ -4,13 +4,13 @@ using UnityEngine;
 public class Ayopin : ScriptableObject
 {
     [Header("SentenceAssemble")]
-    public Color wordBg;
-    public Color wordBgHover;
-    public Color wordBgDragging;
+    public Color nounBg;
+    public Color nounBgHover;
+    public Color nounBgDragging;
     
-    public Color lexSlot;
-    public Color lexSlotHover;
-    public Color lexSlotDragging;
+    public Color caseEndingBg;
+    public Color caseEndingBgHover;
+    public Color caseEndingBgDragging;
 
     [Header("MatchPairs")]
     public Color unselectedWordBg;

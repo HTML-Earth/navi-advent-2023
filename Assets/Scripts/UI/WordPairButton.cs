@@ -9,6 +9,7 @@ public class WordPairButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     bool _isSelected;
     bool _isMatched;
     bool _isHovering;
+    bool _isFlashing;
 
     int _index;
     
@@ -29,7 +30,7 @@ public class WordPairButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (_isMatched || _isSelected)
+        if (_isMatched || _isSelected || _isFlashing)
             return;
         
         _isHovering = true;
@@ -38,9 +39,9 @@ public class WordPairButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (_isMatched || _isSelected)
+        if (_isMatched || _isSelected || _isFlashing)
             return;
-        
+
         _isHovering = false;
         LatemOpin();
     }
@@ -78,11 +79,13 @@ public class WordPairButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     IEnumerator FailFlash()
     {
+        _isFlashing = true;
         bg.color = Settings.current.ayopin.failedWordBg;
         buttonText.color = Color.white;
 
         yield return new WaitForSeconds(0.3f);
         
+        _isFlashing = false;
         LatemOpin();
     }
 

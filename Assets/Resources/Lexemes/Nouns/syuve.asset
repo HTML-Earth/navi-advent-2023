@@ -9,17 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 940d2e0dce65483196810a4f6bdf066f, type: 3}
-  m_Name: Patientive
+  m_Script: {fileID: 11500000, guid: 48fb6586e7d149b48f4004d9ab546aa0, type: 3}
+  m_Name: syuve
   m_EditorClassIdentifier: 
-  text: -T
-  vowelEndings:
-  - t
-  - ti
-  consonantEndings:
-  - ti
-  - it
-  diphthongEndings:
-  - ti
-  - it
-  - t
+  text: syuve

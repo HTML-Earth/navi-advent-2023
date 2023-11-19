@@ -27,6 +27,11 @@ public class Noun : Lexeme
         return sb.ToString();
     }
 
+    public override string Root()
+    {
+        return text;
+    }
+
     public override int GetSlotCount()
     {
         return 2;

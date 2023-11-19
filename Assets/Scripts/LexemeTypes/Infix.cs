@@ -11,6 +11,11 @@ public class Infix : Lexeme
         return text;
     }
 
+    public override string Root()
+    {
+        throw new System.NotImplementedException();
+    }
+
     public override int GetSlotCount()
     {
         return 0;

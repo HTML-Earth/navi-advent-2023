@@ -546,21 +546,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1368792365}
     m_Modifications:
-    - target: {fileID: 477564587523785304, guid: adc70422fc81c444d8045b748102aaee, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -240
-      objectReference: {fileID: 0}
-    - target: {fileID: 477564587523785304, guid: adc70422fc81c444d8045b748102aaee, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1166528771057489724, guid: adc70422fc81c444d8045b748102aaee, type: 3}
       propertyPath: m_Name
       value: SentenceAssemble
-      objectReference: {fileID: 0}
-    - target: {fileID: 1166528771057489724, guid: adc70422fc81c444d8045b748102aaee, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3497078351123821265, guid: adc70422fc81c444d8045b748102aaee, type: 3}
       propertyPath: m_Pivot.x
@@ -640,6 +628,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3497078351123821265, guid: adc70422fc81c444d8045b748102aaee, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671726765606052249, guid: adc70422fc81c444d8045b748102aaee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cf7aa9d15e9f53e4a8921c1b42197d2c, type: 3}
+    - target: {fileID: 6671726765606052249, guid: adc70422fc81c444d8045b748102aaee, type: 3}
+      propertyPath: m_Color.a
+      value: 0.30588236
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671726765606052249, guid: adc70422fc81c444d8045b748102aaee, type: 3}
+      propertyPath: m_Color.g
+      value: 0.75347257
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671726765606052249, guid: adc70422fc81c444d8045b748102aaee, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

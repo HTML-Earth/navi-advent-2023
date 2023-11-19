@@ -58,6 +58,11 @@ public class Verb : Lexeme
         return sb.ToString();
     }
 
+    public override string Root()
+    {
+        return text.Replace(".", "");
+    }
+
     public override int GetSlotCount()
     {
         return 3;

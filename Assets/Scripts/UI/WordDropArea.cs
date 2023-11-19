@@ -4,22 +4,26 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class WordDropArea : MonoBehaviour, IDropHandler, IPointerMoveHandler
+public class WordDropArea : MonoBehaviour, IDropHandler, IPointerMoveHandler, IPointerExitHandler
 {
     public RectTransform dropVisual;
     public Image dropVisualImage;
     RectTransform _rectT;
-    
-    float _screenWidth = 1000f; //TODO make dynamic
+
+    float _screenWidth;
     Lexeme _lexeme;
     TextMeshProUGUI _text;
     List<LexemeInstance> _droppedWords = new();
     List<float> _dropPositions = new();
     List<(int, int)> _dropIndexes = new();
     int _nextDropPosition;
+
+    public List<LexemeInstance> DroppedWords() => _droppedWords;
     
     void Awake()
     {
+        var margin = 100;
+        _screenWidth = transform.parent.GetComponent<RectTransform>().rect.width - margin * 2;
         _rectT = GetComponent<RectTransform>();
         _dropPositions.Add(-_screenWidth * 0.5f);
         _dropIndexes.Add((-1,0));
@@ -49,6 +53,14 @@ public class WordDropArea : MonoBehaviour, IDropHandler, IPointerMoveHandler
 
             dropVisualImage.enabled = true;
             dropVisual.localPosition = new Vector3(_dropPositions[_nextDropPosition], 25, 0);
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (eventData.dragging)
+        {
+            dropVisualImage.enabled = false;
         }
     }
 
@@ -82,6 +94,7 @@ public class WordDropArea : MonoBehaviour, IDropHandler, IPointerMoveHandler
                     _droppedWords.Insert(_dropIndexes[_nextDropPosition].Item2, lexemeInstance);
                 
                     lexemeInstance.transform.SetParent(transform, true);
+                    lexemeInstance.transform.SetSiblingIndex(0);
                     lexemeInstance.OnDroppedInDropArea(this);
                 }
             }

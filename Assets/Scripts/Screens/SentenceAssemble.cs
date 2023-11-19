@@ -1,26 +1,40 @@
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SentenceAssemble : MonoBehaviour
 {
-    float _screenWidth = 1000f; //TODO make dynamic
+    float _screenWidth;
     GameObject _wordPrefab;
     public WordBankExercise wordBankExercise;
     
+    public WordDropArea wordDropArea;
     public Transform wordBankArea;
     public TextMeshProUGUI originalSentence;
     
+    GameObject _darken;
+    GameObject _messageParent;
+    TextMeshProUGUI _messageText;
+    
     void Awake()
     {
+        var margin = 100;
+        _screenWidth = GetComponent<RectTransform>().rect.width - margin * 2;
         _wordPrefab = Resources.Load<GameObject>("Prefabs/Word");
+        _darken = transform.Find("darken").gameObject;
+        _messageParent = transform.Find("'upxare").gameObject;
+        _messageText = transform.Find("'upxare/pamrel").GetComponent<TextMeshProUGUI>();
         originalSentence.text = wordBankExercise.originalSentence;
         InstantiateWords();
     }
 
     void InstantiateWords()
     {
-        foreach (var word in wordBankExercise.words)
+        var shuffledWordList = wordBankExercise.words.OrderBy(_ => Random.value).ToList(); // should be fine with small lists
+        
+        foreach (var word in shuffledWordList)
         {
             GameObject lexInstance = Instantiate(_wordPrefab, wordBankArea);
             var lex = lexInstance.GetComponent<LexemeInstance>();
@@ -84,5 +98,21 @@ public class SentenceAssemble : MonoBehaviour
         }
 
         return words;
+    }
+
+    public void SubmitSolution()
+    {
+        var droppedWords = wordDropArea.DroppedWords();
+
+        var correct = wordBankExercise.CheckSolution(droppedWords, out var message);
+
+        _darken.SetActive(true);
+        _messageParent.SetActive(true);
+        _messageText.text = correct ? "Seysonìltsan!" : $"Keftxo.\n{message}";
+    }
+
+    public void Retry()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

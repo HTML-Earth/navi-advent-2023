@@ -4,6 +4,7 @@ using UnityEngine;
 public abstract class Lexeme : ScriptableObject
 {
     public abstract string Render();
+    public abstract string Root();
 
     public string GetLastSound()
     {

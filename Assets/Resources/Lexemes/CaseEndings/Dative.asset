@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 940d2e0dce65483196810a4f6bdf066f, type: 3}
   m_Name: Dative
   m_EditorClassIdentifier: 
-  text: -r
+  text: -R
   vowelEndings:
   - r
   - ru

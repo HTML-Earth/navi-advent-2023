@@ -10,6 +10,11 @@ public class Adposition : Lexeme
         throw new System.NotImplementedException();
     }
 
+    public override string Root()
+    {
+        throw new System.NotImplementedException();
+    }
+
     public override int GetSlotCount()
     {
         return 0;
