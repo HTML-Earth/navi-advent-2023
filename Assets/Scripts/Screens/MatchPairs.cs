@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MatchPairs : MonoBehaviour
 {
@@ -12,15 +13,21 @@ public class MatchPairs : MonoBehaviour
     WordPairButton[] _wordButtons;
     int _selectedWord;
     int _matchCount;
+    
+    TextMeshProUGUI _countText;
 
     bool _gameIsActive;
-    int _currentExercise;
+    //int _currentExercise;
+    int _exerciseCount;
 
     int _triesLeft;
     TextMeshProUGUI _triesText;
     
     GameObject _messageParent;
     TextMeshProUGUI _messageText;
+    GameObject _nextPairsButton;
+    GameObject _restartButton;
+    GameObject _quitButton;
 
     GameObject _wordButton;
 
@@ -28,18 +35,24 @@ public class MatchPairs : MonoBehaviour
     {
         _wordButton = Resources.Load<GameObject>("Prefabs/WordPairButton");
         _triesText = transform.Find("Tries").GetComponent<TextMeshProUGUI>();
+        _countText = transform.Find("Count").GetComponent<TextMeshProUGUI>();
         _messageParent = transform.Find("'upxare").gameObject;
         _messageText = transform.Find("'upxare/pamrel").GetComponent<TextMeshProUGUI>();
+        _nextPairsButton = transform.Find("'upxare/NextPairs").gameObject;
+        _restartButton = transform.Find("'upxare/Restart").gameObject;
+        _quitButton = transform.Find("'upxare/Quit").gameObject;
 
-        _currentExercise = -1;
+        _exerciseCount = matchPairsExercises.Count;
+        _countText.text = $"0/{_exerciseCount}";
+        //_currentExercise = -1;
         NewExercise();
     }
 
     void NewExercise()
     {
-        _currentExercise++;
-        if (_currentExercise >= matchPairsExercises.Count)
-            _currentExercise = 0;
+        // _currentExercise++;
+        // if (_currentExercise >= matchPairsExercises.Count)
+        //     _currentExercise = 0;
         
         foreach (Transform t in leftParent)
         {
@@ -58,7 +71,7 @@ public class MatchPairs : MonoBehaviour
         UpdateTriesText();
 
         _wordPairs = new List<(string, string)>();
-        foreach (var pair in matchPairsExercises[_currentExercise].wordPairs)
+        foreach (var pair in matchPairsExercises[0].wordPairs)
         {
             var split = pair.Split(',');
             _wordPairs.Add((split[0], split[1]));
@@ -89,6 +102,8 @@ public class MatchPairs : MonoBehaviour
         {
             _wordButtons[Random.Range(0, wordPairCount)].transform.SetSiblingIndex(0);
         }
+        
+        matchPairsExercises.RemoveAt(0);
     }
 
     public void TrySelect(int index)
@@ -155,12 +170,43 @@ public class MatchPairs : MonoBehaviour
     {
         _gameIsActive = false;
         _messageParent.SetActive(true);
-        _messageText.text = victory ? "Seysonìltsan!" : "Keftxo.";
+
+        _countText.text = $"{_exerciseCount - matchPairsExercises.Count}/{_exerciseCount}";
+
+        if (victory)
+        {
+            if (matchPairsExercises.Count < 1)
+            {
+                _messageText.text = "Wou! You got all of them!";
+                _quitButton.SetActive(true);
+            }
+            else
+            {
+                _messageText.text = $"Seysonìltsan! {matchPairsExercises.Count} left.";
+                _nextPairsButton.SetActive(true);
+            }
+        }
+        else
+        {
+            _messageText.text = "Keftxo.";
+            _restartButton.SetActive(true);
+        }
     }
 
     public void Retry()
     {
+        // _messageParent.SetActive(false);
+        // NewExercise();
+        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    
+    public void NextPairs()
+    {
         _messageParent.SetActive(false);
+        _nextPairsButton.SetActive(false);
+        _restartButton.SetActive(false);
+        _quitButton.SetActive(false);
         NewExercise();
     }
 
