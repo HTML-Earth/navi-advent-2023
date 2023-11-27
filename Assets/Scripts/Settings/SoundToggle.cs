@@ -4,8 +4,6 @@ using UnityEngine.UI;
 
 public class SoundToggle : MonoBehaviour
 {
-    bool _soundIsEnabled;
-
     Image _image;
     TextMeshProUGUI _text;
 
@@ -24,13 +22,15 @@ public class SoundToggle : MonoBehaviour
 
     public void ToggleSound()
     {
-        _soundIsEnabled = !_soundIsEnabled;
+        var soundIsEnabled = Settings.current.GetSoundEnabled();
+        Settings.current.SetSoundEnabled(!soundIsEnabled);
         UpdateVisuals();
     }
 
     void UpdateVisuals()
     {
-        _image.sprite = _soundIsEnabled ? _onSprite : _offSprite;
-        _text.text = _soundIsEnabled ? $"Sound:\nEnabled" : $"Sound:\nDisabled";
+        var soundIsEnabled = Settings.current.GetSoundEnabled();
+        _image.sprite = soundIsEnabled ? _onSprite : _offSprite;
+        _text.text = soundIsEnabled ? $"Sound:\nEnabled" : $"Sound:\nDisabled";
     }
 }
