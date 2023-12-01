@@ -534,6 +534,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7853493909454412057, guid: 03874a6ea7ff2f74394e3a49444e51b6, type: 3}
+      propertyPath: matchPairsExercises.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7853493909454412057, guid: 03874a6ea7ff2f74394e3a49444e51b6, type: 3}
       propertyPath: matchPairsExercises.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 883c88b6847a4e742b8eb1d5ad0d2237, type: 2}

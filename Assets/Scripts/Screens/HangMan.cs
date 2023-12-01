@@ -328,7 +328,7 @@ public class HangMan : MonoBehaviour
         _messageParent.SetActive(true);
         
         var theWord = RenderLiu(_currentWord);
-        var firstLine = (victory ? "Seysonìltsan! You guessed it!" : "You ran out of guesses.") + $"\nThe word was \"{theWord}\".\n({_currentWordTranslation})";
+        var firstLine = (victory ? "Seysonìltsan! You guessed it!" : "You ran out of guesses.") + $"\nThe word was [{theWord}].\n({_currentWordTranslation})";
 
         if (victory)
         {
