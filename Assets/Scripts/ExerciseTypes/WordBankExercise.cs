@@ -79,7 +79,7 @@ public class WordBankExercise : ScriptableObject
                     sb.Append($" ({affixSplit[1]})");
                 }
                 
-                message = $"Couldn't find <b>{sb}</b>";
+                message = $"Your translation is missing: <b>{sb}</b>";
                 return false;
             }
         }

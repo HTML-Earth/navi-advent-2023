@@ -13,5 +13,11 @@ MonoBehaviour:
   m_Name: easy
   m_EditorClassIdentifier: 
   words:
-  - kehe
-  - slele
+  - ga,you
+  - oe,I/me
+  - win,fast
+  - lu,to be
+  - "p\xC2,water/liquid"
+  - tul,to run
+  - qa,mouth
+  - do,if

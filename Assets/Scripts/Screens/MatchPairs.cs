@@ -9,6 +9,13 @@ public class MatchPairs : MonoBehaviour
     public Transform leftParent;
     public Transform rightParent;
 
+    public AudioClip selectSound;
+    public AudioClip correctPairSound;
+    public AudioClip wrongPairSound;
+    public AudioClip victorySound;
+
+    AudioSource _source;
+
     List<(string, string)> _wordPairs;
     WordPairButton[] _wordButtons;
     int _selectedWord;
@@ -41,6 +48,9 @@ public class MatchPairs : MonoBehaviour
         _nextPairsButton = transform.Find("'upxare/NextPairs").gameObject;
         _restartButton = transform.Find("'upxare/Restart").gameObject;
         _quitButton = transform.Find("'upxare/Quit").gameObject;
+        _source = GetComponent<AudioSource>();
+        if (!Settings.current.GetSoundEnabled())
+            _source.mute = true;
 
         _exerciseCount = matchPairsExercises.Count;
         _countText.text = $"0/{_exerciseCount}";
@@ -142,6 +152,9 @@ public class MatchPairs : MonoBehaviour
                 _wordButtons[_selectedWord].Deselect();
             }
         }
+
+        _source.clip = selectSound;
+        _source.Play();
         
         _wordButtons[index].Select();
         _selectedWord = index;
@@ -154,6 +167,11 @@ public class MatchPairs : MonoBehaviour
         {
             OnGameEnd(true);
         }
+        else
+        {
+            _source.clip = correctPairSound;
+            _source.Play();
+        }
     }
 
     void Fail()
@@ -163,6 +181,11 @@ public class MatchPairs : MonoBehaviour
         if (_triesLeft < 1)
         {
             OnGameEnd(false);
+        }
+        else
+        {
+            _source.clip = wrongPairSound;
+            _source.Play();
         }
     }
     
@@ -185,11 +208,17 @@ public class MatchPairs : MonoBehaviour
                 _messageText.text = $"Seysonìltsan! {matchPairsExercises.Count} left.";
                 _nextPairsButton.SetActive(true);
             }
+            
+            _source.clip = victorySound;
+            _source.Play();
         }
         else
         {
-            _messageText.text = "Keftxo.";
+            _messageText.text = "You ran out of tries.\nWant to start over?";
             _restartButton.SetActive(true);
+            
+            _source.clip = wrongPairSound;
+            _source.Play();
         }
     }
 

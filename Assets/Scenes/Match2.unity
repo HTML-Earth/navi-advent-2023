@@ -533,6 +533,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7853493909454412057, guid: 03874a6ea7ff2f74394e3a49444e51b6, type: 3}
+      propertyPath: matchPairsExercises.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 883c88b6847a4e742b8eb1d5ad0d2237, type: 2}
+    - target: {fileID: 7853493909454412057, guid: 03874a6ea7ff2f74394e3a49444e51b6, type: 3}
+      propertyPath: matchPairsExercises.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: c67ebb6387a57a947be354dcee0cb091, type: 2}
+    - target: {fileID: 7853493909454412057, guid: 03874a6ea7ff2f74394e3a49444e51b6, type: 3}
+      propertyPath: matchPairsExercises.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: b2a6b9dfd0fa5b642b7301873b20348a, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -572,11 +584,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2026998197756466909, guid: 5630923b0734aea458539090d769ddb9, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 80
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 2026998197756466909, guid: 5630923b0734aea458539090d769ddb9, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 80
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 2026998197756466909, guid: 5630923b0734aea458539090d769ddb9, type: 3}
       propertyPath: m_LocalPosition.x

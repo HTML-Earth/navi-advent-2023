@@ -12,10 +12,18 @@ public class HangMan : MonoBehaviour
     public Transform wordParent;
     public Transform keyboardParent;
     public HangmanExercise exercise;
+    public AudioClip correctLetterSound;
+    public AudioClip wrongLetterSound;
+    public AudioClip victorySound;
+    public AudioClip defeatSound;
+
+    AudioSource _source;
+    
     List<string> _words;
     int _fullWordCount;
 
     string _currentWord;
+    string _currentWordTranslation;
     int _currentWordIndex;
     List<(char, bool, TextMeshProUGUI)> _wordToGuess;
     List<char> _guessedChars;
@@ -47,6 +55,9 @@ public class HangMan : MonoBehaviour
         _NewWordButton = transform.Find("'upxare/Restart").gameObject;
         _GoBackButton = transform.Find("'upxare/End").gameObject;
         _messageText = transform.Find("'upxare/pamrel").GetComponent<TextMeshProUGUI>();
+        _source = GetComponent<AudioSource>();
+        if (!Settings.current.GetSoundEnabled())
+            _source.mute = true;
 
         if (exercise == null || exercise.words.Count < 1)
         {
@@ -63,9 +74,7 @@ public class HangMan : MonoBehaviour
         _fullWordCount = _words.Count;
         
         _currentWordIndex = Random.Range(0, _words.Count);
-        _currentWord = _words[_currentWordIndex];
-        
-        InitNewWord(_currentWord);
+        InitNewWord(_words[_currentWordIndex]);
         InitKeyboard();
     }
 
@@ -146,7 +155,7 @@ public class HangMan : MonoBehaviour
 
     void InitNewWord(string newWord)
     {
-        _livesLeft = 8;
+        _livesLeft = 10;
         _guessedChars = new List<char>();
         _wrongGuesses = new List<char>();
         _wordToGuess = new List<(char, bool, TextMeshProUGUI)>();
@@ -155,8 +164,12 @@ public class HangMan : MonoBehaviour
         {
             Destroy(t.gameObject);
         }
+
+        var split = newWord.Split(',');
+        _currentWord = split[0];
+        _currentWordTranslation = split[1];
         
-        foreach (var c in newWord)
+        foreach (var c in _currentWord)
         {
             var p = Instantiate(_pamrelviPrefab, wordParent);
             var txt = p.GetComponent<TextMeshProUGUI>();
@@ -230,10 +243,17 @@ public class HangMan : MonoBehaviour
 
         if (correctIndices.Count < 1)
         {
+            _source.clip = wrongLetterSound;
+            _source.Play();
             _livesLeft--;
             RenderLives();
             _wrongGuesses.Add(pamrelvi);
             RenderWrongGuesses();
+        }
+        else
+        {
+            _source.clip = correctLetterSound;
+            _source.Play();
         }
 
         foreach (var correctIndex in correctIndices)
@@ -308,17 +328,24 @@ public class HangMan : MonoBehaviour
         _messageParent.SetActive(true);
         
         var theWord = RenderLiu(_currentWord);
-        var firstLine = (victory ? "Seysonìltsan! You guessed it!" : "Keftxo.") + $"\nThe word was <b>{theWord}</b>";
+        var firstLine = (victory ? "Seysonìltsan! You guessed it!" : "You ran out of guesses.") + $"\nThe word was \"{theWord}\".\n({_currentWordTranslation})";
 
         if (victory)
         {
+            _source.clip = victorySound;
+            _source.Play();
             _words.RemoveAt(_currentWordIndex);
             RenderWordCount();
+        }
+        else
+        {
+            _source.clip = defeatSound;
+            _source.Play();
         }
         
         if (_words.Count < 1)
         {
-            _messageText.text = $"{firstLine}\n<b>No more words left!</b>";
+            _messageText.text = $"{firstLine}\nYou've identified all of the words!";
             _NewWordButton.SetActive(false);
             _GoBackButton.SetActive(true);
         }
@@ -370,8 +397,6 @@ public class HangMan : MonoBehaviour
         _messageParent.SetActive(false);
         
          _currentWordIndex = Random.Range(0, _words.Count);
-        _currentWord = _words[_currentWordIndex];
-        
-        InitNewWord(_currentWord);
+        InitNewWord(_words[_currentWordIndex]);
     }
 }

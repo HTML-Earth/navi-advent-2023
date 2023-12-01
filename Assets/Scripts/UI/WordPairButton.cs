@@ -48,6 +48,9 @@ public class WordPairButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (_isMatched || _isSelected || _isFlashing)
+            return;
+        
         _matchPairs.TrySelect(_index);
     }
 

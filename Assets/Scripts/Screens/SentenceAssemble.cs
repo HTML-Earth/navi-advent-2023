@@ -108,7 +108,7 @@ public class SentenceAssemble : MonoBehaviour
 
         _darken.SetActive(true);
         _messageParent.SetActive(true);
-        _messageText.text = correct ? "Seysonìltsan!" : $"Keftxo.\n{message}";
+        _messageText.text = correct ? "Seysonìltsan!" : message;
     }
 
     public void Retry()
