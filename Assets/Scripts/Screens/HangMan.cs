@@ -11,18 +11,24 @@ public class HangMan : MonoBehaviour
 {
     public Transform wordParent;
     public Transform keyboardParent;
-    public List<string> words;
+    public HangmanExercise exercise;
+    List<string> _words;
+    int _fullWordCount;
 
     string _currentWord;
+    int _currentWordIndex;
     List<(char, bool, TextMeshProUGUI)> _wordToGuess;
     List<char> _guessedChars;
     List<char> _wrongGuesses;
     int _livesLeft;
 
     TextMeshProUGUI _livesText;
+    TextMeshProUGUI _wordCountText;
     TextMeshProUGUI _guessedText;
     
     GameObject _messageParent;
+    GameObject _NewWordButton;
+    GameObject _GoBackButton;
     TextMeshProUGUI _messageText;
 
     GameObject _pamrelviPrefab;
@@ -35,17 +41,29 @@ public class HangMan : MonoBehaviour
         _pamrelviPrefab = Resources.Load<GameObject>("Prefabs/pamrelvi");
         _keyPrefab = Resources.Load<GameObject>("Prefabs/key");
         _livesText = transform.Find("lives").GetComponent<TextMeshProUGUI>();
+        _wordCountText = transform.Find("wordcount").GetComponent<TextMeshProUGUI>();
         _guessedText = transform.Find("guessed").GetComponent<TextMeshProUGUI>();
         _messageParent = transform.Find("'upxare").gameObject;
+        _NewWordButton = transform.Find("'upxare/Restart").gameObject;
+        _GoBackButton = transform.Find("'upxare/End").gameObject;
         _messageText = transform.Find("'upxare/pamrel").GetComponent<TextMeshProUGUI>();
 
-        if (words.Count < 1)
+        if (exercise == null || exercise.words.Count < 1)
         {
             Debug.LogError("NO WORDS IN LIST");
             return;
         }
+
+        _words = new List<string>();
+        foreach (var word in exercise.words)
+        {
+            _words.Add(word);
+        }
+
+        _fullWordCount = _words.Count;
         
-        _currentWord = words[Random.Range(0, words.Count)];
+        _currentWordIndex = Random.Range(0, _words.Count);
+        _currentWord = _words[_currentWordIndex];
         
         InitNewWord(_currentWord);
         InitKeyboard();
@@ -148,6 +166,7 @@ public class HangMan : MonoBehaviour
         
         RenderLives();
         RenderWrongGuesses();
+        RenderWordCount();
         RenderWord();
         ResetKeyboard();
     }
@@ -233,6 +252,11 @@ public class HangMan : MonoBehaviour
         _livesText.text = $"Guesses left: {_livesLeft}";
     }
 
+    void RenderWordCount()
+    {
+        _wordCountText.text = $"Words correctly guessed: {_fullWordCount - _words.Count}/{_fullWordCount}";
+    }
+
     void RenderWrongGuesses()
     {
         if (_wrongGuesses.Count < 1)
@@ -279,10 +303,31 @@ public class HangMan : MonoBehaviour
 
     void OnGameEnd(bool victory)
     {
-        _messageParent.SetActive(true);
-        var theWord = RenderLiu(_currentWord);
-        _messageText.text = (victory ? "Seysonìltsan! You guessed it!" : "Keftxo.") + $"\nThe word was <b>{theWord}</b>";
         DisableKeyboard();
+        
+        _messageParent.SetActive(true);
+        
+        var theWord = RenderLiu(_currentWord);
+        var firstLine = (victory ? "Seysonìltsan! You guessed it!" : "Keftxo.") + $"\nThe word was <b>{theWord}</b>";
+
+        if (victory)
+        {
+            _words.RemoveAt(_currentWordIndex);
+            RenderWordCount();
+        }
+        
+        if (_words.Count < 1)
+        {
+            _messageText.text = $"{firstLine}\n<b>No more words left!</b>";
+            _NewWordButton.SetActive(false);
+            _GoBackButton.SetActive(true);
+        }
+        else
+        {
+            _NewWordButton.SetActive(true);
+            _GoBackButton.SetActive(false);
+            _messageText.text = firstLine;
+        }
     }
 
     string RenderPamrelvi(char c)
@@ -323,7 +368,10 @@ public class HangMan : MonoBehaviour
     public void Restart()
     {
         _messageParent.SetActive(false);
-        _currentWord = words[Random.Range(0, words.Count)];
+        
+         _currentWordIndex = Random.Range(0, _words.Count);
+        _currentWord = _words[_currentWordIndex];
+        
         InitNewWord(_currentWord);
     }
 }

@@ -12,7 +12,7 @@ public class SoundToggle : MonoBehaviour
 
     void Awake()
     {
-        _image = transform.GetComponent<Image>();
+        _image = transform.Find("Icon").transform.GetComponent<Image>();
         _text = transform.Find("Text").GetComponent<TextMeshProUGUI>();
         _onSprite = Resources.Load<Sprite>("Sprites/speaker_on");
         _offSprite = Resources.Load<Sprite>("Sprites/speaker_off");
