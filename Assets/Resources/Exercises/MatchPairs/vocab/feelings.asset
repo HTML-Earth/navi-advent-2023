@@ -9,13 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27c87b534ea24162b9843b222725df6c, type: 3}
-  m_Name: easy
+  m_Script: {fileID: 11500000, guid: b065e7927c7d9974eb8f9898020c8408, type: 3}
+  m_Name: feelings
   m_EditorClassIdentifier: 
-  words:
-  - ga,you
-  - oe,I/me
-  - win,fast
-  - lu,to be
-  - tul,to run
-  - do,if
+  wordPairs:
+  - "v\xE4ng, thirsty"
+  - ohakx, hungry
+  - nitram, happy
+  - am'ake, sure/confident
+  - ngeyn, tired

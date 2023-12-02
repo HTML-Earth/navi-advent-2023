@@ -535,20 +535,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7853493909454412057, guid: 03874a6ea7ff2f74394e3a49444e51b6, type: 3}
       propertyPath: matchPairsExercises.Array.size
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7853493909454412057, guid: 03874a6ea7ff2f74394e3a49444e51b6, type: 3}
       propertyPath: matchPairsExercises.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: b2a6b9dfd0fa5b642b7301873b20348a, type: 2}
+      objectReference: {fileID: 11400000, guid: 9ae3fe9f607ad764aadfb45c8b5761d1, type: 2}
     - target: {fileID: 7853493909454412057, guid: 03874a6ea7ff2f74394e3a49444e51b6, type: 3}
       propertyPath: matchPairsExercises.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: f76d77483b32edc4da0e9608453614e8, type: 2}
+      objectReference: {fileID: 11400000, guid: 5b311f4680483c14b8404bcb7bfee997, type: 2}
     - target: {fileID: 7853493909454412057, guid: 03874a6ea7ff2f74394e3a49444e51b6, type: 3}
       propertyPath: matchPairsExercises.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: f76d77483b32edc4da0e9608453614e8, type: 2}
+      objectReference: {fileID: 11400000, guid: b2a6b9dfd0fa5b642b7301873b20348a, type: 2}
+    - target: {fileID: 7853493909454412057, guid: 03874a6ea7ff2f74394e3a49444e51b6, type: 3}
+      propertyPath: matchPairsExercises.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: aeffdf33e163d204aa32c7d64142b5db, type: 2}
+    - target: {fileID: 7853493909454412057, guid: 03874a6ea7ff2f74394e3a49444e51b6, type: 3}
+      propertyPath: matchPairsExercises.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: c67ebb6387a57a947be354dcee0cb091, type: 2}
+    - target: {fileID: 7853493909454412057, guid: 03874a6ea7ff2f74394e3a49444e51b6, type: 3}
+      propertyPath: matchPairsExercises.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 883c88b6847a4e742b8eb1d5ad0d2237, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -535,20 +535,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7853493909454412057, guid: 03874a6ea7ff2f74394e3a49444e51b6, type: 3}
       propertyPath: matchPairsExercises.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7853493909454412057, guid: 03874a6ea7ff2f74394e3a49444e51b6, type: 3}
       propertyPath: matchPairsExercises.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 883c88b6847a4e742b8eb1d5ad0d2237, type: 2}
+      objectReference: {fileID: 11400000, guid: d42ff3262bb457244889ca007b02694c, type: 2}
     - target: {fileID: 7853493909454412057, guid: 03874a6ea7ff2f74394e3a49444e51b6, type: 3}
       propertyPath: matchPairsExercises.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: c67ebb6387a57a947be354dcee0cb091, type: 2}
+      objectReference: {fileID: 11400000, guid: 2ec9975310f4ee74dbb0fcf6d1e28878, type: 2}
     - target: {fileID: 7853493909454412057, guid: 03874a6ea7ff2f74394e3a49444e51b6, type: 3}
       propertyPath: matchPairsExercises.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: b2a6b9dfd0fa5b642b7301873b20348a, type: 2}
+      objectReference: {fileID: 11400000, guid: 7fbf3de3d6e1b0f49b7712873a60c435, type: 2}
+    - target: {fileID: 7853493909454412057, guid: 03874a6ea7ff2f74394e3a49444e51b6, type: 3}
+      propertyPath: matchPairsExercises.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: d46d9fe4f7aab5842a5bcab07fadb700, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

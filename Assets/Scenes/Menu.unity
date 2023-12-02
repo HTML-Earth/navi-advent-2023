@@ -1014,15 +1014,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5922567592086060886, guid: e15f9cd742534da479316a279984e955, type: 3}
       propertyPath: m_Color.b
-      value: 0.4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5922567592086060886, guid: e15f9cd742534da479316a279984e955, type: 3}
       propertyPath: m_Color.g
-      value: 0.4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5922567592086060886, guid: e15f9cd742534da479316a279984e955, type: 3}
       propertyPath: m_Color.r
-      value: 0.93333334
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7024515589214173952, guid: e15f9cd742534da479316a279984e955, type: 3}
       propertyPath: m_Name
@@ -1032,7 +1032,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Match
 
-        (Hard)'
+        (Vocab)'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2301,11 +2301,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5922567592086060886, guid: e15f9cd742534da479316a279984e955, type: 3}
       propertyPath: m_Color.b
-      value: 0.48584908
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5922567592086060886, guid: e15f9cd742534da479316a279984e955, type: 3}
       propertyPath: m_Color.g
-      value: 0.8555155
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5922567592086060886, guid: e15f9cd742534da479316a279984e955, type: 3}
       propertyPath: m_Color.r
@@ -2319,7 +2319,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Match
 
-        (Medium)'
+        (Grammar)'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3499,11 +3499,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5922567592086060886, guid: e15f9cd742534da479316a279984e955, type: 3}
       propertyPath: m_Color.g
-      value: 0.9521234
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5922567592086060886, guid: e15f9cd742534da479316a279984e955, type: 3}
       propertyPath: m_Color.r
-      value: 0.6179246
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7024515589214173952, guid: e15f9cd742534da479316a279984e955, type: 3}
       propertyPath: m_Name
@@ -3513,7 +3513,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Match
 
-        (Easy)'
+        (Pronouns)'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
