@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   line: "Ma Txew\xEC! Lu oeru s\xE4fp\xECl.. Tsun oeng fwivi!"
   speakerName: Ralu
+  color: {r: 1, g: 0.38039216, b: 0.38039216, a: 1}
   speakerIcon: {fileID: 0}
   audio: {fileID: 0}

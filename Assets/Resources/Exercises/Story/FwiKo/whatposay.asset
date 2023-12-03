@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 375c641179384243a3595243379dd651, type: 3}
-  m_Name: fwiko03_txewi
+  m_Script: {fileID: 11500000, guid: 5e6472f6efbd421f80b8795af72ad5f5, type: 3}
+  m_Name: whatposay
   m_EditorClassIdentifier: 
-  line: "Srane! Sl\xE4 kin 'uot a tsas\xECn heyn.."
-  speakerName: "Txew\xEC"
-  color: {r: 0.33333334, g: 0.84705883, b: 1, a: 1}
-  speakerIcon: {fileID: 0}
-  audio: {fileID: 0}
+  question: 
+  answers:
+  - "Ulte tsahem r\xE4ptums\xEC."
+  - "Rutxe tsakem r\xE4'\xE4 si."
+  - "Run s\xE4latem ra'un tsim."
+  correctAnswer: 1
