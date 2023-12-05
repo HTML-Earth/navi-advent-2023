@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class Story : MonoBehaviour
     public AudioClip wrongPairSound;
     public AudioClip victorySound;
 
+    GameObject _continueButton;
     Transform _parent;
     ScrollRect _scrollRect;
     AudioSource _source;
@@ -24,6 +26,7 @@ public class Story : MonoBehaviour
 
     void Awake()
     {
+        _continueButton = transform.Find("Continue").gameObject;
         _parent = transform.Find("Scroll View/Viewport/Content");
         _scrollRect = transform.Find("Scroll View").GetComponent<ScrollRect>();
         _storyLinePrefab = Resources.Load<GameObject>("Prefabs/StoryLine");
@@ -41,10 +44,17 @@ public class Story : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        NextPart();
+    }
+
     public void NextPart()
     {
         if (parts.Count < 1)
             return;
+        
+        _continueButton.SetActive(false);
         
         var nextPart = parts.Dequeue();
         GameObject prefab = null;
@@ -56,7 +66,12 @@ public class Story : MonoBehaviour
                 var hasSpeaker = line.speakerName != "";
                 prefab = Instantiate(hasSpeaker ? _storySpeakerLinePrefab : _storyLinePrefab, _parent);
                 var lineUi = prefab.GetComponent<StoryLineText>();
-                lineUi.Play(line);
+                if (line.audio != null)
+                {
+                    _source.clip = line.audio;
+                    _source.Play();
+                }
+                lineUi.Play(line, this);
                 break;
             }
             case StoryQuestion question:
@@ -94,5 +109,10 @@ public class Story : MonoBehaviour
             _scrollRect.verticalNormalizedPosition = Mathf.Lerp(start, 0, t * invDur);
             yield return null;
         }
+    }
+
+    public void DisplayContinueButton()
+    {
+        _continueButton.SetActive(true);
     }
 }

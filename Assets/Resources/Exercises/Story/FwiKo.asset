@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: FwiKo
   m_EditorClassIdentifier: 
   parts:
+  - {fileID: 11400000, guid: b2788b612da8a9144b181e540a55d08f, type: 2}
   - {fileID: 11400000, guid: 1d2afb754ff79724a8fa0b75b42694a8, type: 2}
   - {fileID: 11400000, guid: 5f7eba1b79d5a444da47bb5ee5025948, type: 2}
   - {fileID: 11400000, guid: 585870309a71f884fab35ba804644a6e, type: 2}

@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 375c641179384243a3595243379dd651, type: 3}
   m_Name: fwiko04_ralu
   m_EditorClassIdentifier: 
-  line: "Fpiv\xECl.."
   speakerName: Ralu
+  line: "Fpiv\xECl.."
   color: {r: 1, g: 0.38039216, b: 0.38039216, a: 1}
   speakerIcon: {fileID: 0}
-  audio: {fileID: 0}
+  audio: {fileID: 8300000, guid: 5322123e88b833741a24a9daa0c0561e, type: 3}
+  highlightTimings: []

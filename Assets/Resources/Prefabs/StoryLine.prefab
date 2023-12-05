@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmp: {fileID: 5951288123897480204}
+  icon: {fileID: 0}
 --- !u!1 &8502736017198154282
 GameObject:
   m_ObjectHideFlags: 0
