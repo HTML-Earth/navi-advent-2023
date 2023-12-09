@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -8,7 +9,9 @@ public class SentenceAssemble : MonoBehaviour
 {
     float _screenWidth;
     GameObject _wordPrefab;
-    public WordBankExercise wordBankExercise;
+    public List<WordBankExercise> wordBankExercises;
+    Queue<WordBankExercise> _exercises;
+    WordBankExercise _currentExercise;
     
     public WordDropArea wordDropArea;
     public Transform wordBankArea;
@@ -16,6 +19,9 @@ public class SentenceAssemble : MonoBehaviour
     
     GameObject _darken;
     GameObject _messageParent;
+    GameObject _restartButton;
+    GameObject _nextButton;
+    GameObject _quitButton;
     TextMeshProUGUI _messageText;
     
     void Awake()
@@ -25,14 +31,23 @@ public class SentenceAssemble : MonoBehaviour
         _wordPrefab = Resources.Load<GameObject>("Prefabs/Word");
         _darken = transform.Find("darken").gameObject;
         _messageParent = transform.Find("'upxare").gameObject;
+        _restartButton = transform.Find("'upxare/Restart").gameObject;
+        _nextButton = transform.Find("'upxare/Next").gameObject;
+        _quitButton = transform.Find("'upxare/Quit").gameObject;
         _messageText = transform.Find("'upxare/pamrel").GetComponent<TextMeshProUGUI>();
-        originalSentence.text = wordBankExercise.originalSentence;
+        _exercises = new Queue<WordBankExercise>();
+        foreach (var exercise in wordBankExercises)
+        {
+            _exercises.Enqueue(exercise);
+        }
+        _currentExercise = _exercises.Dequeue();
         InstantiateWords();
     }
 
     void InstantiateWords()
     {
-        var shuffledWordList = wordBankExercise.words.OrderBy(_ => Random.value).ToList(); // should be fine with small lists
+        originalSentence.text = _currentExercise.originalSentence;
+        var shuffledWordList = _currentExercise.words.OrderBy(_ => Random.value).ToList(); // should be fine with small lists
         
         foreach (var word in shuffledWordList)
         {
@@ -49,7 +64,7 @@ public class SentenceAssemble : MonoBehaviour
             word.UpdateWidth();
         }
 
-        ReflowWords();
+        StartCoroutine(ReflowAgain());
     }
 
     public void OnWordDroppedOutsideDropArea(LexemeInstance wordInstance)
@@ -104,15 +119,58 @@ public class SentenceAssemble : MonoBehaviour
     {
         var droppedWords = wordDropArea.DroppedWords();
 
-        var correct = wordBankExercise.CheckSolution(droppedWords, out var message);
+        var correct = _currentExercise.CheckSolution(droppedWords, out var message);
 
         _darken.SetActive(true);
         _messageParent.SetActive(true);
         _messageText.text = correct ? "Seysonìltsan!" : message;
+
+        if (_exercises.Count > 0 || !correct)
+        {
+            _nextButton.SetActive(correct);
+            _restartButton.SetActive(!correct);
+            _quitButton.SetActive(false);
+        }
+        else
+        {
+            _messageText.text = "Wou! You got them all.";
+            _nextButton.SetActive(false);
+            _restartButton.SetActive(false);
+            _quitButton.SetActive(true);
+        }
+    }
+
+    void ClearWords()
+    {
+        wordDropArea.Clear();
+        foreach (Transform transform in wordBankArea)
+        {
+            Destroy(transform.gameObject);
+        }
+        foreach (Transform transform in wordBankArea)
+        {
+            Destroy(transform.gameObject);
+        }
+        _darken.SetActive(false);
+        _messageParent.SetActive(false);
     }
 
     public void Retry()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        ClearWords();
+        InstantiateWords();
+    }
+
+    public void NextSentence()
+    {
+        ClearWords();
+        _currentExercise = _exercises.Dequeue();
+        InstantiateWords();
+    }
+
+    IEnumerator ReflowAgain()
+    {
+        yield return null;
+        ReflowWords();
     }
 }

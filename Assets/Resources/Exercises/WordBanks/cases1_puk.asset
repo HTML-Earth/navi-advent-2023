@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff9a510b03834ad997802c941091ec70, type: 3}
-  m_Name: 1_yayo
+  m_Name: cases1_puk
   m_EditorClassIdentifier: 
-  originalSentence: The bird eats the worm.
+  originalSentence: You read a book.
   words:
-  - {fileID: 11400000, guid: 9d326ac5646976248b639f9f1d709f2a, type: 2}
-  - {fileID: 11400000, guid: ee41d49af3399834593df5ae3a8653b9, type: 2}
-  - {fileID: 11400000, guid: 55a21101b8f6a914a9f984c4ed52ad75, type: 2}
+  - {fileID: 11400000, guid: 656210317d9aa57449d9c903c117f203, type: 2}
+  - {fileID: 11400000, guid: 1a2e00a13bd175c4285f7a64219192de, type: 2}
+  - {fileID: 11400000, guid: 8aa0440b866e06544994dbfa2a5cc133, type: 2}
   - {fileID: 11400000, guid: a360f3fbdce82aa47b266f6e49fd6a29, type: 2}
   - {fileID: 11400000, guid: c04ea972a32fa824e9ac173abd994924, type: 2}
-  solution: yayo|1:-L ngawng|1:-T yom
+  solution: nga|1:-L puk|1:-T inan

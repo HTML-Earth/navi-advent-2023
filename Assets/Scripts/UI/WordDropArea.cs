@@ -25,8 +25,7 @@ public class WordDropArea : MonoBehaviour, IDropHandler, IPointerMoveHandler, IP
         var margin = 100;
         _screenWidth = transform.parent.GetComponent<RectTransform>().rect.width - margin * 2;
         _rectT = GetComponent<RectTransform>();
-        _dropPositions.Add(-_screenWidth * 0.5f);
-        _dropIndexes.Add((-1,0));
+        Clear();
     }
 
     public void OnPointerMove(PointerEventData eventData)
@@ -163,5 +162,20 @@ public class WordDropArea : MonoBehaviour, IDropHandler, IPointerMoveHandler, IP
     {
         StartCoroutine(word.MoveWord(word.transform.localPosition, new Vector3(x, 0, 0)));
         return word.Width + 20f;
+    }
+
+    public void Clear()
+    {
+        foreach (var word in _droppedWords)
+        {
+            Destroy(word.gameObject);
+        }
+        _droppedWords.Clear();
+        
+        _dropPositions.Clear();
+        _dropIndexes.Clear();
+        
+        _dropPositions.Add(-_screenWidth * 0.5f);
+        _dropIndexes.Add((-1,0));
     }
 }

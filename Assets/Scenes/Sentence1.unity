@@ -538,6 +538,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2026998197756466909, guid: 5630923b0734aea458539090d769ddb9, type: 3}
   m_PrefabInstance: {fileID: 2055446804}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2055446806 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3720473898674936037, guid: 5630923b0734aea458539090d769ddb9, type: 3}
+  m_PrefabInstance: {fileID: 2055446804}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c5d6a3bae5b32240890b3922eb98d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1456904025252619630
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -546,6 +557,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1368792365}
     m_Modifications:
+    - target: {fileID: 995708999921185783, guid: adc70422fc81c444d8045b748102aaee, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2055446806}
+    - target: {fileID: 995708999921185783, guid: adc70422fc81c444d8045b748102aaee, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReturnToMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 995708999921185783, guid: adc70422fc81c444d8045b748102aaee, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BackButton, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1166528771057489724, guid: adc70422fc81c444d8045b748102aaee, type: 3}
       propertyPath: m_Name
       value: SentenceAssemble
@@ -634,6 +657,22 @@ PrefabInstance:
       propertyPath: wordBankExercise
       value: 
       objectReference: {fileID: 11400000, guid: c56fe1acf5756694697e45b5b2837e08, type: 2}
+    - target: {fileID: 5196147913092063181, guid: adc70422fc81c444d8045b748102aaee, type: 3}
+      propertyPath: wordBankExercises.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196147913092063181, guid: adc70422fc81c444d8045b748102aaee, type: 3}
+      propertyPath: wordBankExercises.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: c56fe1acf5756694697e45b5b2837e08, type: 2}
+    - target: {fileID: 5196147913092063181, guid: adc70422fc81c444d8045b748102aaee, type: 3}
+      propertyPath: wordBankExercises.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5e9e8345628e5be4f848cd2074ec5923, type: 2}
+    - target: {fileID: 5196147913092063181, guid: adc70422fc81c444d8045b748102aaee, type: 3}
+      propertyPath: wordBankExercises.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0a493ee230b602848816f0674930da89, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

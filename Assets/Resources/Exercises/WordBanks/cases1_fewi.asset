@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff9a510b03834ad997802c941091ec70, type: 3}
-  m_Name: hunterchasesnantang
+  m_Name: cases1_fewi
   m_EditorClassIdentifier: 
   originalSentence: The hunter chases the viperwolf.
   words:
@@ -19,15 +19,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: eb7e2b99101a5e747af3f990223a42cc, type: 2}
   - {fileID: 11400000, guid: a360f3fbdce82aa47b266f6e49fd6a29, type: 2}
   - {fileID: 11400000, guid: c04ea972a32fa824e9ac173abd994924, type: 2}
-  - {fileID: 11400000, guid: c08619856e43681478b5f10f1dcb93c5, type: 2}
-  - {fileID: 11400000, guid: 656324a205087574fbfe6629ac97713a, type: 2}
-  - {fileID: 11400000, guid: 72846ee64216cfe43a27d78d6114a190, type: 2}
-  - {fileID: 11400000, guid: f52c84d23931ed94a9058bfaa9ef2488, type: 2}
-  - {fileID: 11400000, guid: 19dacc6bd596d7e49869b64d1dd41e0a, type: 2}
-  solutions:
-  - taronyul fewi nantangit
-  - taronyul nantangit fewi
-  - fewi taronyul nantangit
-  - fewi nantangit taronyul
-  - nantangit fewi taronyul
-  - nantangit taronyul fewi
+  solution: taronyu|1:-L nantang|1:-T fewi
