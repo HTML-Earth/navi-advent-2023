@@ -24,6 +24,8 @@ public class Story : MonoBehaviour
 
     Queue<StoryPart> parts;
 
+    bool _instantText;
+
     void Awake()
     {
         _continueButton = transform.Find("Continue").gameObject;
@@ -35,7 +37,10 @@ public class Story : MonoBehaviour
         
         _source = GetComponent<AudioSource>();
         if (!Settings.current.GetSoundEnabled())
+        {
             _source.mute = true;
+            _instantText = true;
+        }
 
         parts = new Queue<StoryPart>();
         foreach (var part in storyExercise.parts)
@@ -114,5 +119,10 @@ public class Story : MonoBehaviour
     public void DisplayContinueButton()
     {
         _continueButton.SetActive(true);
+    }
+
+    public bool InstantText()
+    {
+        return _instantText;
     }
 }

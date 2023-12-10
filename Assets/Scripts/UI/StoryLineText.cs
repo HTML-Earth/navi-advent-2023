@@ -21,7 +21,7 @@ public class StoryLineText : MonoBehaviour
             icon.color = line.color;
         }
         
-        if (line.highlightTimings.Count < 1)
+        if (line.highlightTimings.Count < 1 || story.InstantText())
         {
             tmp.text = line.line;
             OnFinishedLine();
