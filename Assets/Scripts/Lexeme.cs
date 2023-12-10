@@ -29,4 +29,5 @@ public abstract class Lexeme : ScriptableObject
     public abstract void OnInserted(Lexeme hostWord);
     public abstract void OnRemoved();
     public abstract bool CanBeStandaloneWord();
+    public abstract bool CanBeUsedWith(Lexeme hostWord);
 }

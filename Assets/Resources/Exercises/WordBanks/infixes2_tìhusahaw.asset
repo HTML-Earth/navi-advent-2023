@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff9a510b03834ad997802c941091ec70, type: 3}
-  m_Name: infixes2_hahaw
+  m_Name: "infixes2_t\xEChusahaw"
   m_EditorClassIdentifier: 
   originalSentence: Sleeping is important.
   words:
@@ -18,4 +18,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 698b73b0cae8e9f4a8989fdf3e558af3, type: 2}
   - {fileID: 11400000, guid: d92c56dff81b6044aa40f0f8537dcf43, type: 2}
   - {fileID: 11400000, guid: 261387cfee5351d4abcd780d7208da3c, type: 2}
-  solution: "hahaw|0:t\xEC-|2:<us> tsranten"
+  solution: "hahaw|-1:t\xEC-|1:<us> tsranten"

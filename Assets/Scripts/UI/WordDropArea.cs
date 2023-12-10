@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class WordDropArea : MonoBehaviour, IDropHandler, IPointerMoveHandler, IPointerExitHandler
 {
+    const float Margin = 20;
     public RectTransform dropVisual;
     public Image dropVisualImage;
     RectTransform _rectT;
@@ -22,8 +23,7 @@ public class WordDropArea : MonoBehaviour, IDropHandler, IPointerMoveHandler, IP
     
     void Awake()
     {
-        var margin = 100;
-        _screenWidth = transform.parent.GetComponent<RectTransform>().rect.width - margin * 2;
+        _screenWidth = transform.parent.GetComponent<RectTransform>().rect.width;
         _rectT = GetComponent<RectTransform>();
         Clear();
     }
@@ -33,6 +33,8 @@ public class WordDropArea : MonoBehaviour, IDropHandler, IPointerMoveHandler, IP
         if (eventData.dragging)
         {
             RectTransformUtility.ScreenPointToLocalPointInRectangle(_rectT, eventData.position, null, out var relativeCursorPoint);
+            relativeCursorPoint -= new Vector2(-_screenWidth * 0.5f,0);
+            
             var lexemeInstance = eventData.pointerDrag.GetComponent<LexemeInstance>();
             
             _nextDropPosition = _dropPositions.Count - 1;
@@ -51,7 +53,7 @@ public class WordDropArea : MonoBehaviour, IDropHandler, IPointerMoveHandler, IP
             }
 
             dropVisualImage.enabled = true;
-            dropVisual.localPosition = new Vector3(_dropPositions[_nextDropPosition], 25, 0);
+            dropVisual.anchoredPosition = new Vector3(_dropPositions[_nextDropPosition], 25, 0);
         }
     }
 
@@ -76,7 +78,8 @@ public class WordDropArea : MonoBehaviour, IDropHandler, IPointerMoveHandler, IP
             var slotIndexToDropInto = _dropIndexes[index].Item2;
 
             return _droppedWords[wordIndexToDropInto].Lexeme.SlotCanHoldLexeme(slotIndexToDropInto, word)
-                && !_droppedWords[wordIndexToDropInto].Lexeme.SlotIsOccupied(slotIndexToDropInto);
+                && !_droppedWords[wordIndexToDropInto].Lexeme.SlotIsOccupied(slotIndexToDropInto)
+                && word.CanBeUsedWith(_droppedWords[wordIndexToDropInto].Lexeme);
         }
     }
     
@@ -127,7 +130,7 @@ public class WordDropArea : MonoBehaviour, IDropHandler, IPointerMoveHandler, IP
 
     void ReflowWords()
     {
-        float x = -_screenWidth * 0.5f;
+        float x = 0 + Margin;
         int wordIndex = 0;
 
         _dropIndexes.Clear();
@@ -160,7 +163,7 @@ public class WordDropArea : MonoBehaviour, IDropHandler, IPointerMoveHandler, IP
 
     float MoveWordAndReturnWidth(LexemeInstance word, float x)
     {
-        StartCoroutine(word.MoveWord(word.transform.localPosition, new Vector3(x, 0, 0)));
+        StartCoroutine(word.MoveWord(word.GetWordPos(), new Vector3(x, 0, 0)));
         return word.Width + 20f;
     }
 
@@ -175,7 +178,7 @@ public class WordDropArea : MonoBehaviour, IDropHandler, IPointerMoveHandler, IP
         _dropPositions.Clear();
         _dropIndexes.Clear();
         
-        _dropPositions.Add(-_screenWidth * 0.5f);
+        _dropPositions.Add(Margin);
         _dropIndexes.Add((-1,0));
     }
 }

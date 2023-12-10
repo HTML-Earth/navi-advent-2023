@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: -T
   vowelEndings:
-  - t
   - ti
+  - t
   consonantEndings:
   - ti
   - it

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff9a510b03834ad997802c941091ec70, type: 3}
+  m_Name: cases1_tsamsiyu
+  m_EditorClassIdentifier: 
+  originalSentence: The warrior sees the enemy.
+  words:
+  - {fileID: 11400000, guid: 5ed8bea3afb14f9458dc771ba9241e6a, type: 2}
+  - {fileID: 11400000, guid: 59d19f66daaec3b4d8f406366de34ae9, type: 2}
+  - {fileID: 11400000, guid: 4464e89e0a6b21642ab971a7ef5011fd, type: 2}
+  - {fileID: 11400000, guid: a360f3fbdce82aa47b266f6e49fd6a29, type: 2}
+  - {fileID: 11400000, guid: c04ea972a32fa824e9ac173abd994924, type: 2}
+  solution: tsamsiyu|1:-L kxutu|1:-T tse'a

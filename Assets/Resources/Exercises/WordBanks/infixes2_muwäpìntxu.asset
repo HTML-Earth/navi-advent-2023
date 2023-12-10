@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff9a510b03834ad997802c941091ec70, type: 3}
+  m_Name: "infixes2_muw\xE4p\xECntxu"
+  m_EditorClassIdentifier: 
+  originalSentence: He is introducing himself.
+  words:
+  - {fileID: 11400000, guid: 78db92edddc289a43a4ec3ba7c97d22e, type: 2}
+  - {fileID: 11400000, guid: 73c1e2116f328614c9a739ff84943325, type: 2}
+  - {fileID: 11400000, guid: c08619856e43681478b5f10f1dcb93c5, type: 2}
+  - {fileID: 11400000, guid: 19dacc6bd596d7e49869b64d1dd41e0a, type: 2}
+  solution: "muw\xECntxu|0:<\xE4p>|1:<er> po"

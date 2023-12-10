@@ -768,15 +768,27 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Sentence3
       objectReference: {fileID: 0}
+    - target: {fileID: 5922567592086060886, guid: e15f9cd742534da479316a279984e955, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5922567592086060886, guid: e15f9cd742534da479316a279984e955, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 5922567592086060886, guid: e15f9cd742534da479316a279984e955, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8627451
+      objectReference: {fileID: 0}
     - target: {fileID: 7024515589214173952, guid: e15f9cd742534da479316a279984e955, type: 3}
       propertyPath: m_Name
       value: Sentence3
       objectReference: {fileID: 0}
     - target: {fileID: 8509483640970441519, guid: e15f9cd742534da479316a279984e955, type: 3}
       propertyPath: m_text
-      value: 'Sentence
+      value: 'Sentences
 
-        3'
+        (Infixes 1)'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1134,7 +1146,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5770315909278256612, guid: e15f9cd742534da479316a279984e955, type: 3}
       propertyPath: m_Interactable
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5770315909278256612, guid: e15f9cd742534da479316a279984e955, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1368,9 +1380,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8509483640970441519, guid: e15f9cd742534da479316a279984e955, type: 3}
       propertyPath: m_text
-      value: 'Sentence
+      value: 'Sentences
 
-        5'
+        (Bonus)'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1795,15 +1807,27 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Sentence1
       objectReference: {fileID: 0}
+    - target: {fileID: 5922567592086060886, guid: e15f9cd742534da479316a279984e955, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 5922567592086060886, guid: e15f9cd742534da479316a279984e955, type: 3}
+      propertyPath: m_Color.g
+      value: 0.84313726
+      objectReference: {fileID: 0}
+    - target: {fileID: 5922567592086060886, guid: e15f9cd742534da479316a279984e955, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7024515589214173952, guid: e15f9cd742534da479316a279984e955, type: 3}
       propertyPath: m_Name
       value: Sentence1
       objectReference: {fileID: 0}
     - target: {fileID: 8509483640970441519, guid: e15f9cd742534da479316a279984e955, type: 3}
       propertyPath: m_text
-      value: 'Sentence
+      value: 'Sentences
 
-        1'
+        (Cases 1)'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2435,15 +2459,23 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Sentence2
       objectReference: {fileID: 0}
+    - target: {fileID: 5922567592086060886, guid: e15f9cd742534da479316a279984e955, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 5922567592086060886, guid: e15f9cd742534da479316a279984e955, type: 3}
+      propertyPath: m_Color.g
+      value: 0.84313726
+      objectReference: {fileID: 0}
     - target: {fileID: 7024515589214173952, guid: e15f9cd742534da479316a279984e955, type: 3}
       propertyPath: m_Name
       value: Sentence2
       objectReference: {fileID: 0}
     - target: {fileID: 8509483640970441519, guid: e15f9cd742534da479316a279984e955, type: 3}
       propertyPath: m_text
-      value: 'Sentence
+      value: 'Sentences
 
-        2'
+        (Cases 2)'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3763,15 +3795,27 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Sentence4
       objectReference: {fileID: 0}
+    - target: {fileID: 5922567592086060886, guid: e15f9cd742534da479316a279984e955, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5922567592086060886, guid: e15f9cd742534da479316a279984e955, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 5922567592086060886, guid: e15f9cd742534da479316a279984e955, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8627451
+      objectReference: {fileID: 0}
     - target: {fileID: 7024515589214173952, guid: e15f9cd742534da479316a279984e955, type: 3}
       propertyPath: m_Name
       value: Sentence4
       objectReference: {fileID: 0}
     - target: {fileID: 8509483640970441519, guid: e15f9cd742534da479316a279984e955, type: 3}
       propertyPath: m_text
-      value: 'Sentence
+      value: 'Sentences
 
-        4'
+        (Infixes 2)'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -4,6 +4,9 @@
 public class Prefix : Lexeme
 {
     public string text = "";
+    public bool lenites;
+    public bool worksWithNouns;
+    public bool worksWithVerbs;
     
     public override string Render()
     {
@@ -58,5 +61,15 @@ public class Prefix : Lexeme
     public override bool CanBeStandaloneWord()
     {
         return false;
+    }
+
+    public override bool CanBeUsedWith(Lexeme hostWord)
+    {
+        return hostWord switch
+        {
+            Noun => worksWithNouns,
+            Verb => worksWithVerbs,
+            _ => false
+        };
     }
 }

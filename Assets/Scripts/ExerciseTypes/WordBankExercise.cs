@@ -54,11 +54,13 @@ public class WordBankExercise : ScriptableObject
                     var affixSplit = affix.Split(':');
                     var slotIndex = Convert.ToInt32(affixSplit[0]);
                     var affixName = affixSplit[1];
+
+                    var verbOffset = inputWord.Lexeme is Verb ? 1 : 0;
                 
-                    if (!inputWord.Lexeme.SlotIsOccupied(slotIndex))
+                    if (!inputWord.Lexeme.SlotIsOccupied(slotIndex + verbOffset))
                         break;
                     
-                    var lex = inputWord.Lexeme.GetLexemeFromSlot(slotIndex);
+                    var lex = inputWord.Lexeme.GetLexemeFromSlot(slotIndex + verbOffset);
                     if (lex.Root() == affixName)
                     {
                         affixesFound++;

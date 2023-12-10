@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff9a510b03834ad997802c941091ec70, type: 3}
+  m_Name: infixes2_asyinan
+  m_EditorClassIdentifier: 
+  originalSentence: I WILL read that book!
+  words:
+  - {fileID: 11400000, guid: 7adae424489b86d41aa0179bb89a84cc, type: 2}
+  - {fileID: 11400000, guid: a360f3fbdce82aa47b266f6e49fd6a29, type: 2}
+  - {fileID: 11400000, guid: 1a2e00a13bd175c4285f7a64219192de, type: 2}
+  - {fileID: 11400000, guid: c04ea972a32fa824e9ac173abd994924, type: 2}
+  - {fileID: 11400000, guid: 8aa0440b866e06544994dbfa2a5cc133, type: 2}
+  - {fileID: 11400000, guid: 632a966e18b4a97458bf2738d4957f42, type: 2}
+  - {fileID: 11400000, guid: f0334736408fe48408daf0b77eab8b8a, type: 2}
+  solution: inan|1:<asy> puk|0:tsa-|1:-T

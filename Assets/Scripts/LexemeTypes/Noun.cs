@@ -39,16 +39,15 @@ public class Noun : Lexeme
 
     public override bool SlotCanHoldLexeme(int slotIndex, Lexeme lexeme)
     {
+        if (lexeme is Prefix)
+        {
+            return slotIndex == 0;
+        }
+        
         if (lexeme is CaseEnding or Adposition)
         {
             return slotIndex == 1;
         }
-        
-        // TODO: prefixes
-        // if (lexeme is prefix)
-        // {
-        //     return true;
-        // }
         
         return false;
     }
@@ -118,5 +117,10 @@ public class Noun : Lexeme
     public override bool CanBeStandaloneWord()
     {
         return true;
+    }
+
+    public override bool CanBeUsedWith(Lexeme hostWord)
+    {
+        return false;
     }
 }

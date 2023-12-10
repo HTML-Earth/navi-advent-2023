@@ -26,6 +26,8 @@ public class CaseEnding : Lexeme
             case "o":
             case "u":
             case "ù":
+                if (text == "-Ä" && (_wordEndsWith == "u" || _wordEndsWith == "o"))
+                    return vowelEndings[1];
                 return vowelEndings[0];
                 
             case "aw":
@@ -111,5 +113,10 @@ public class CaseEnding : Lexeme
     public override bool CanBeStandaloneWord()
     {
         return false;
+    }
+
+    public override bool CanBeUsedWith(Lexeme hostWord)
+    {
+        return hostWord is Noun;
     }
 }

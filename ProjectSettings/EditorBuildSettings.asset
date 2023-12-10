@@ -19,29 +19,35 @@ EditorBuildSettings:
     guid: b944d5472b686984c84fd007754069c9
   - enabled: 1
     path: Assets/Scenes/Match2.unity
-    guid: 58594d2a9c87e944c9b0e1f4137d640f
+    guid: d48295e6e53f9f4448b023c0b6ee6b54
   - enabled: 1
     path: Assets/Scenes/Match3.unity
-    guid: 6bf4fef3ccacc40408431f8a90f92d91
+    guid: 4afc6ecde24b47740b06b41ef2ffe0a1
   - enabled: 1
     path: Assets/Scenes/Hangman1.unity
     guid: 650fe3917a1de264aa187a5a57f3605d
   - enabled: 1
     path: Assets/Scenes/Hangman2.unity
-    guid: 82db7106c64f9e843a75c83589e6363a
+    guid: 87741df2e73f7bf49a1a969c1c1ce3d9
   - enabled: 1
     path: Assets/Scenes/Hangman3.unity
-    guid: 285c5d3ea60364140881a5ce267a1f63
+    guid: 292523540ee23754188c07ab043b1a2b
   - enabled: 1
     path: Assets/Scenes/Sentence1.unity
     guid: af6c4d40eba98f6428df348d3a0b0f8a
   - enabled: 1
     path: Assets/Scenes/Sentence2.unity
-    guid: 2263376b84f02494694d69b095bef081
+    guid: b206e06167d9ba943bb679c2fe8f5d63
   - enabled: 1
     path: Assets/Scenes/Sentence3.unity
-    guid: 116202b2ccdf960429af638b89830dc0
+    guid: ff1b28fd27332874aba0dff43dbd3e9e
   - enabled: 1
+    path: Assets/Scenes/Sentence4.unity
+    guid: b56875d0e114d794dbc07a0b914f04ba
+  - enabled: 1
+    path: Assets/Scenes/Sentence5.unity
+    guid: d62e4bfdd79fbeb4d9bc36b01f3c532a
+  - enabled: 0
     path: Assets/Scenes/Story.unity
     guid: 97b52d9194e987a4ea506ab248956da6
   m_configObjects: {}

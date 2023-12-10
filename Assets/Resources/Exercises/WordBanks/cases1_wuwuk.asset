@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff9a510b03834ad997802c941091ec70, type: 3}
+  m_Name: cases1_wuwuk
+  m_EditorClassIdentifier: 
+  originalSentence: The lizard climbs the tree.
+  words:
+  - {fileID: 11400000, guid: a0f6f73a44061d74d82001687b60050b, type: 2}
+  - {fileID: 11400000, guid: 9057f35b730a9854cabd82fd77e0ca45, type: 2}
+  - {fileID: 11400000, guid: c01cfb2b6a8534a4aadc8c5c57d06434, type: 2}
+  - {fileID: 11400000, guid: a360f3fbdce82aa47b266f6e49fd6a29, type: 2}
+  - {fileID: 11400000, guid: c04ea972a32fa824e9ac173abd994924, type: 2}
+  solution: "wuwuk|1:-L utral|1:-T tsy\xECl"

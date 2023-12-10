@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class LexemeInstance : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
 {
+    RectTransform _rectTransform;
     Vector2 _dragOffset;
 
     SentenceAssemble _sentenceAssemble;
@@ -53,6 +54,7 @@ public class LexemeInstance : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         _slotPrefab = Resources.Load<GameObject>("Prefabs/slot");
         _text = transform.Find("text").GetComponent<TextMeshProUGUI>();
         _image = GetComponent<Image>();
+        _rectTransform = GetComponent<RectTransform>();
     }
 
     public void SetLexeme(Lexeme lexeme, SentenceAssemble sentenceAssemble)
@@ -141,7 +143,9 @@ public class LexemeInstance : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 
     public void OnDroppedOntoWord()
     {
+        transform.SetParent(null);
         _sentenceAssemble.ReflowWords();
+        _sentenceAssemble.OnClick();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -151,6 +155,8 @@ public class LexemeInstance : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 
         if (_hoverState == -1)
         {
+            _sentenceAssemble.OnStartDrag();
+            
             if (_isInDropArea)
             {
                 _wordDropArea.RemoveWord(this);
@@ -164,6 +170,8 @@ public class LexemeInstance : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         }
         else
         {
+            _sentenceAssemble.OnUnClick();
+            
             GameObject draggedOutWord = Instantiate(_wordPrefab, _sentenceAssemble.wordBankArea);
             draggedOutWord.GetComponent<Image>().raycastTarget = false;
             var lex = draggedOutWord.GetComponent<LexemeInstance>();
@@ -203,6 +211,10 @@ public class LexemeInstance : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 
         if (!_isInDropArea)
             _sentenceAssemble.OnWordDroppedOutsideDropArea(this);
+        else
+        {
+            _sentenceAssemble.OnDrop();
+        }
         
         _image.color = _bgColor;
         foreach (var handle in _insertedLexemeHandles)
@@ -259,6 +271,16 @@ public class LexemeInstance : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
             handle.Value.image.color = handle.Value.bg;
         }
     }
+
+    public void SetWordPos(Vector3 pos)
+    {
+        _rectTransform.anchoredPosition = pos;
+    }
+    
+    public Vector2 GetWordPos()
+    {
+        return _rectTransform.anchoredPosition;
+    }
     
     public IEnumerator MoveWord(Vector3 startPos, Vector3 endPos)
     {
@@ -266,12 +288,12 @@ public class LexemeInstance : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         float mul = 4;
         while (t <= 0.25f)
         {
-            transform.localPosition = Vector3.Lerp(startPos, endPos, t * mul);
+            _rectTransform.anchoredPosition = Vector3.Lerp(startPos, endPos, t * mul);
             yield return null;
             t += Time.deltaTime;
         }
 
-        transform.localPosition = endPos;
+        _rectTransform.anchoredPosition = endPos;
         SetDraggable(true);
     }
 }

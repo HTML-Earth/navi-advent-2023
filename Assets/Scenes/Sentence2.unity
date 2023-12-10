@@ -634,6 +634,30 @@ PrefabInstance:
       propertyPath: wordBankExercise
       value: 
       objectReference: {fileID: 11400000, guid: 63c7a5c32aed38f45b637a236da7116a, type: 2}
+    - target: {fileID: 5196147913092063181, guid: adc70422fc81c444d8045b748102aaee, type: 3}
+      propertyPath: wordBankExercises.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196147913092063181, guid: adc70422fc81c444d8045b748102aaee, type: 3}
+      propertyPath: wordBankExercises.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: f538f56348366b84a9157f67192c39c9, type: 2}
+    - target: {fileID: 5196147913092063181, guid: adc70422fc81c444d8045b748102aaee, type: 3}
+      propertyPath: wordBankExercises.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 63c7a5c32aed38f45b637a236da7116a, type: 2}
+    - target: {fileID: 5196147913092063181, guid: adc70422fc81c444d8045b748102aaee, type: 3}
+      propertyPath: wordBankExercises.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: d84376daf4db0fb42ae7e3e54c5c3cf6, type: 2}
+    - target: {fileID: 5196147913092063181, guid: adc70422fc81c444d8045b748102aaee, type: 3}
+      propertyPath: wordBankExercises.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1cdacd98250f4244582d544876ff71f4, type: 2}
+    - target: {fileID: 5196147913092063181, guid: adc70422fc81c444d8045b748102aaee, type: 3}
+      propertyPath: wordBankExercises.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 310c4f79810486a499c062718766931f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

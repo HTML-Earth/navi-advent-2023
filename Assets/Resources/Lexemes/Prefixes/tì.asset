@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: "t\xEC"
   m_EditorClassIdentifier: 
   text: "t\xEC-"
+  worksWithNouns: 0
+  worksWithVerbs: 1

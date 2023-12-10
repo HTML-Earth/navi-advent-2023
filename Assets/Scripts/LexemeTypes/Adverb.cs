@@ -54,4 +54,9 @@
     {
         return true;
     }
+
+    public override bool CanBeUsedWith(Lexeme hostWord)
+    {
+        return false;
+    }
 }

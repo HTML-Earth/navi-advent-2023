@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff9a510b03834ad997802c941091ec70, type: 3}
+  m_Name: cases2_kar
+  m_EditorClassIdentifier: 
+  originalSentence: You teach me a lesson.
+  words:
+  - {fileID: 11400000, guid: 656210317d9aa57449d9c903c117f203, type: 2}
+  - {fileID: 11400000, guid: 7adae424489b86d41aa0179bb89a84cc, type: 2}
+  - {fileID: 11400000, guid: be28d50c415441445ae1ce8e54b55823, type: 2}
+  - {fileID: 11400000, guid: e8f0ed9aa04b4934dab641f15852c8b6, type: 2}
+  - {fileID: 11400000, guid: a360f3fbdce82aa47b266f6e49fd6a29, type: 2}
+  - {fileID: 11400000, guid: c04ea972a32fa824e9ac173abd994924, type: 2}
+  - {fileID: 11400000, guid: a68a1e5258d6d8644a418952b7c69433, type: 2}
+  solution: "nga|1:-L oe|1:-RU s\xE4numvi|1:-T kar"

@@ -15,6 +15,7 @@ MonoBehaviour:
   text: "-\xC4"
   vowelEndings:
   - "y\xE4"
+  - "\xE4"
   consonantEndings:
   - "\xE4"
   diphthongEndings:

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff9a510b03834ad997802c941091ec70, type: 3}
+  m_Name: etc_pevur
+  m_EditorClassIdentifier: 
+  originalSentence: What story did you tell?
+  words:
+  - {fileID: 11400000, guid: c953dc70374808942a9ed23853a564a8, type: 2}
+  - {fileID: 11400000, guid: 656210317d9aa57449d9c903c117f203, type: 2}
+  - {fileID: 11400000, guid: c8205471370719249ae909396cce46e8, type: 2}
+  - {fileID: 11400000, guid: 5782faf8d89976c4d872b76dc0fb3a69, type: 2}
+  - {fileID: 11400000, guid: a91f97c4cfd41d744a7b1f2c38a87fe2, type: 2}
+  - {fileID: 11400000, guid: a360f3fbdce82aa47b266f6e49fd6a29, type: 2}
+  - {fileID: 11400000, guid: c04ea972a32fa824e9ac173abd994924, type: 2}
+  solution: vur|0:pe-|1:-T nga|1:-L peng|1:<ol>

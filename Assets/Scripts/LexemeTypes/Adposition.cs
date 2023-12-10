@@ -7,12 +7,12 @@ public class Adposition : Lexeme
     public bool causesLenition = false;
     public override string Render()
     {
-        throw new System.NotImplementedException();
+        return text;
     }
 
     public override string Root()
     {
-        throw new System.NotImplementedException();
+        return text;
     }
 
     public override int GetSlotCount()
@@ -58,5 +58,10 @@ public class Adposition : Lexeme
     public override bool CanBeStandaloneWord()
     {
         return true;
+    }
+
+    public override bool CanBeUsedWith(Lexeme hostWord)
+    {
+        return hostWord is Noun;
     }
 }

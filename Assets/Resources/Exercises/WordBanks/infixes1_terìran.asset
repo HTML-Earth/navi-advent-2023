@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff9a510b03834ad997802c941091ec70, type: 3}
+  m_Name: "infixes1_ter\xECran"
+  m_EditorClassIdentifier: 
+  originalSentence: I am walking.
+  words:
+  - {fileID: 11400000, guid: 0a1c4b3281be71548894ecb30c57bbf1, type: 2}
+  - {fileID: 11400000, guid: 7adae424489b86d41aa0179bb89a84cc, type: 2}
+  - {fileID: 11400000, guid: c08619856e43681478b5f10f1dcb93c5, type: 2}
+  solution: "t\xECran|1:<er>"

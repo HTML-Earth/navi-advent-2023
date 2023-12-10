@@ -60,4 +60,9 @@ public class Infix : Lexeme
     {
         return false;
     }
+
+    public override bool CanBeUsedWith(Lexeme hostWord)
+    {
+        return hostWord is Verb;
+    }
 }

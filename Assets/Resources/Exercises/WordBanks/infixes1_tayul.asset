@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff9a510b03834ad997802c941091ec70, type: 3}
-  m_Name: "infixes1_t\xECran_sdgdfg"
+  m_Name: infixes1_tayul
   m_EditorClassIdentifier: 
-  originalSentence: I walk.
+  originalSentence: You will run.
   words:
-  - {fileID: 11400000, guid: 0a1c4b3281be71548894ecb30c57bbf1, type: 2}
-  - {fileID: 11400000, guid: 7adae424489b86d41aa0179bb89a84cc, type: 2}
-  solution: "t\xECran oe"
+  - {fileID: 11400000, guid: 656210317d9aa57449d9c903c117f203, type: 2}
+  - {fileID: 11400000, guid: db0b54c98c6f3b94d9ab6c601225aaae, type: 2}
+  - {fileID: 11400000, guid: 13755f939553f4b4fbb0c0d6713bc5e6, type: 2}
+  solution: tul|1:<ay> nga

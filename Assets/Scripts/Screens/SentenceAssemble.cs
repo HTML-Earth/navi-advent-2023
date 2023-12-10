@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class SentenceAssemble : MonoBehaviour
 {
-    float _screenWidth;
+    const float Margin = 20;
     GameObject _wordPrefab;
     public List<WordBankExercise> wordBankExercises;
     Queue<WordBankExercise> _exercises;
@@ -16,6 +15,16 @@ public class SentenceAssemble : MonoBehaviour
     public WordDropArea wordDropArea;
     public Transform wordBankArea;
     public TextMeshProUGUI originalSentence;
+
+    public AudioClip dragSound;
+    public AudioClip dropSound;
+    public AudioClip returnSound;
+    public AudioClip clickSound;
+    public AudioClip unclickSound;
+    public AudioClip correctSound;
+    public AudioClip wrongSound;
+
+    AudioSource _source;
     
     GameObject _darken;
     GameObject _messageParent;
@@ -26,8 +35,6 @@ public class SentenceAssemble : MonoBehaviour
     
     void Awake()
     {
-        var margin = 100;
-        _screenWidth = GetComponent<RectTransform>().rect.width - margin * 2;
         _wordPrefab = Resources.Load<GameObject>("Prefabs/Word");
         _darken = transform.Find("darken").gameObject;
         _messageParent = transform.Find("'upxare").gameObject;
@@ -35,6 +42,10 @@ public class SentenceAssemble : MonoBehaviour
         _nextButton = transform.Find("'upxare/Next").gameObject;
         _quitButton = transform.Find("'upxare/Quit").gameObject;
         _messageText = transform.Find("'upxare/pamrel").GetComponent<TextMeshProUGUI>();
+        _source = GetComponent<AudioSource>();
+        if (!Settings.current.GetSoundEnabled())
+            _source.mute = true;
+        
         _exercises = new Queue<WordBankExercise>();
         foreach (var exercise in wordBankExercises)
         {
@@ -67,23 +78,50 @@ public class SentenceAssemble : MonoBehaviour
         StartCoroutine(ReflowAgain());
     }
 
+    public void OnStartDrag()
+    {
+        _source.clip = dragSound;
+        _source.Play();
+    }
+
+    public void OnDrop()
+    {
+        _source.clip = dropSound;
+        _source.Play();
+    }
+
+    public void OnClick()
+    {
+        _source.clip = clickSound;
+        _source.Play();
+    }
+
+    public void OnUnClick()
+    {
+        _source.clip = unclickSound;
+        _source.Play();
+    }
+    
     public void OnWordDroppedOutsideDropArea(LexemeInstance wordInstance)
     {
+        _source.clip = returnSound;
+        _source.Play();
+        
         wordInstance.SetDraggable(false);
 
-        var wordTransform = wordInstance.transform;
+        var wordTransform = wordInstance.GetComponent<RectTransform>();
         
         if (wordTransform.parent != wordBankArea)
             wordTransform.SetParent(wordBankArea);
         
         wordTransform.SetParent(wordBankArea, true);
-        StartCoroutine(wordInstance.MoveWord(wordTransform.localPosition, GetWordPosition(wordInstance)));
+        StartCoroutine(wordInstance.MoveWord(wordTransform.anchoredPosition, GetWordPosition(wordInstance)));
         ReflowWords();
     }
 
     Vector3 GetWordPosition(LexemeInstance word)
     {
-        float x = -_screenWidth * 0.5f;
+        float x = Margin;//-_screenWidth * 0.5f - 60;
         foreach (LexemeInstance t in WordBankWords())
         {
             if (t == word)
@@ -96,10 +134,10 @@ public class SentenceAssemble : MonoBehaviour
     
     public void ReflowWords()
     {
-        float x = -_screenWidth * 0.5f;
+        float x = Margin;//-_screenWidth * 0.5f - 60;
         foreach (LexemeInstance word in WordBankWords())
         {
-            word.transform.localPosition = new Vector3(x, 0, 0);
+            word.SetWordPos(new Vector3(x, 0, 0));
             x += word.Width + 20f;
         }
     }
@@ -124,6 +162,9 @@ public class SentenceAssemble : MonoBehaviour
         _darken.SetActive(true);
         _messageParent.SetActive(true);
         _messageText.text = correct ? "Seysonìltsan!" : message;
+        
+        _source.clip = correct ? correctSound : wrongSound;
+        _source.Play();
 
         if (_exercises.Count > 0 || !correct)
         {
