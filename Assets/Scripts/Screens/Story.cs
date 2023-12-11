@@ -82,11 +82,6 @@ public class Story : MonoBehaviour
                 var hasSpeaker = line.speakerName != "";
                 prefab = Instantiate(line.isTitle ? _storyTitlePrefab : hasSpeaker ? _storySpeakerLinePrefab : _storyLinePrefab, _parent);
                 var lineUi = prefab.GetComponent<StoryLineText>();
-                if (line.audio != null)
-                {
-                    _source.clip = line.audio;
-                    _source.Play();
-                }
                 lineUi.Play(line, this);
                 break;
             }

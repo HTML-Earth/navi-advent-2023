@@ -123,6 +123,9 @@ public class StoryMiniWordPairs : MonoBehaviour, IMatchPairs
         _matchCount++;
         if (_matchCount == _wordPairs.Count)
         {
+            _source.clip = victorySound;
+            _source.Play();
+            
             _story.Scroll(true);
             _story.DisplayContinueButton();
         }

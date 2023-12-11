@@ -13,9 +13,16 @@ MonoBehaviour:
   m_Name: 06_sulan_raa
   m_EditorClassIdentifier: 
   speakerName: Sulan
-  line: Sran.. New tsat sivar srak? _______________
+  line: Sran.. New tsat sivar srak? _______________ .
   instantContinue: 1
+  isTitle: 0
   color: {r: 1, g: 1, b: 1, a: 1}
   speakerIcon: {fileID: 21300000, guid: 5a148d1c992e4f744aa74cfbfde1766b, type: 3}
-  audio: {fileID: 0}
-  highlightTimings: []
+  audio: {fileID: 8300000, guid: b5c1d11b13af4454da39b12e6983ee1a, type: 3}
+  highlightTimings:
+  - 1.57
+  - 0.226
+  - 0.258
+  - 0.496
+  - 0.897
+  - 1.8

@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: 08_sulan_swawtsyip
   m_EditorClassIdentifier: 
   speakerName: Sulan
-  line: "'Awa swawtsy\xECp!"
+  line: "\xCC\xEC... 'Awa swawtsy\xECp!"
   instantContinue: 0
+  isTitle: 0
   color: {r: 1, g: 1, b: 1, a: 1}
   speakerIcon: {fileID: 21300000, guid: 5a148d1c992e4f744aa74cfbfde1766b, type: 3}
-  audio: {fileID: 0}
-  highlightTimings: []
+  audio: {fileID: 8300000, guid: 7ee42d711ed83fe4d942fdf6f52da31e, type: 3}
+  highlightTimings:
+  - 1.326
+  - 0.3

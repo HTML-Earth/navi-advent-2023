@@ -7,6 +7,10 @@ using UnityEngine.UI;
 public class StoryQuestionText : MonoBehaviour
 {
     public TextMeshProUGUI tmp;
+    public AudioSource source;
+    
+    public AudioClip correctSound;
+    public AudioClip wrongSound;
 
     GameObject _answerPrefab;
     Story _story;
@@ -16,6 +20,8 @@ public class StoryQuestionText : MonoBehaviour
     void Awake()
     {
         _answerPrefab = Resources.Load<GameObject>("Prefabs/StoryQuestionAnswer");
+        if (!Settings.current.GetSoundEnabled())
+            source.mute = true;
     }
 
     public void Play(StoryQuestion question, Story story)
@@ -53,6 +59,9 @@ public class StoryQuestionText : MonoBehaviour
         {
             _buttons[index].image.color = Color.red;
             _buttons[index].interactable = false;
+            
+            source.clip = wrongSound;
+            source.Play();
         }
         else
         {
@@ -73,8 +82,11 @@ public class StoryQuestionText : MonoBehaviour
             }
             else
             {
-                text.text = "Correct!";
+                text.text = $"Correct! {_question.answerExplanation}";
             }
+            
+            source.clip = correctSound;
+            source.Play();
             
             _story.Scroll(true);
             _story.DisplayContinueButton();

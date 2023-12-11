@@ -9,6 +9,7 @@ public class StoryLineText : MonoBehaviour
 {
     public TextMeshProUGUI tmp;
     public Image icon;
+    public AudioSource source;
 
     Story _story;
 
@@ -22,7 +23,15 @@ public class StoryLineText : MonoBehaviour
             icon.color = line.color;
         }
         
-        if (line.highlightTimings.Count < 1 || story.InstantText())
+        if (line.audio != null)
+        {
+            if (!Settings.current.GetSoundEnabled())
+                source.mute = true;
+            source.clip = line.audio;
+            source.Play();
+        }
+        
+        if (line.highlightTimings.Count < 1 || story.InstantText() || line.audio == null)
         {
             tmp.text = line.line;
             OnFinishedLine();
@@ -36,9 +45,14 @@ public class StoryLineText : MonoBehaviour
 
     IEnumerator HighlightText(string[] splitLine, List<float> timings)
     {
+        float t = 0;
+        
         var sb = new StringBuilder();
         for (var word = 0; word < splitLine.Length; word++)
         {
+            if (word < timings.Count)
+                t += timings[word];
+            
             sb.Clear();
             for (var i = 0; i <= word; i++)
             {
@@ -53,8 +67,16 @@ public class StoryLineText : MonoBehaviour
             }
             tmp.text = sb.ToString();
             
-            if (word < timings.Count)
-                yield return new WaitForSeconds(timings[word]);
+            while (source.time < t)
+            {
+                yield return null;
+            }
+            
+            // if (word < timings.Count)
+            // {
+            //     
+            //     yield return new WaitForSeconds(timings[word]);
+            // }
             
         }
         OnFinishedLine();

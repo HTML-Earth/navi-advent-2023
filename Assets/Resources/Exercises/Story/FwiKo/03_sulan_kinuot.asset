@@ -18,11 +18,11 @@ MonoBehaviour:
   isTitle: 0
   color: {r: 1, g: 1, b: 1, a: 1}
   speakerIcon: {fileID: 21300000, guid: 5a148d1c992e4f744aa74cfbfde1766b, type: 3}
-  audio: {fileID: 0}
+  audio: {fileID: 8300000, guid: c244128fdb39731458d65ead382205b1, type: 3}
   highlightTimings:
-  - 1.2
-  - 0.3
-  - 0.3
-  - 0.4
-  - 0.2
-  - 0.5
+  - 1.324
+  - 0.514
+  - 0.34
+  - 0.424
+  - 0.16
+  - 0.49

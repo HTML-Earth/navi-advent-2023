@@ -15,7 +15,15 @@ MonoBehaviour:
   speakerName: Sulan
   line: Sran! Ha txo slivu ngeyn, tsakrr tsun hivahaw.
   instantContinue: 0
+  isTitle: 0
   color: {r: 1, g: 1, b: 1, a: 1}
   speakerIcon: {fileID: 21300000, guid: 5a148d1c992e4f744aa74cfbfde1766b, type: 3}
-  audio: {fileID: 0}
-  highlightTimings: []
+  audio: {fileID: 8300000, guid: be6096070dfc48d429bb4d0c12d52790, type: 3}
+  highlightTimings:
+  - 0.833
+  - 0.305
+  - 0.235
+  - 0.435
+  - 0.685
+  - 0.641
+  - 0.415
