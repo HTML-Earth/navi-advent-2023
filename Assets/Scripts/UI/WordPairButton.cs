@@ -16,9 +16,9 @@ public class WordPairButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public Image bg;
     public TextMeshProUGUI buttonText;
 
-    MatchPairs _matchPairs;
+    IMatchPairs _matchPairs;
 
-    public void Init(int index, MatchPairs matchPairs)
+    public void Init(int index, IMatchPairs matchPairs)
     {
         _index = index;
         _matchPairs = matchPairs;

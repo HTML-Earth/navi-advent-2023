@@ -7,6 +7,8 @@ public class StoryLine : StoryPart
     public string speakerName;
     [TextArea]
     public string line;
+    public bool instantContinue;
+    public bool isTitle;
     public Color color = Color.white;
     public Sprite speakerIcon;
     public AudioClip audio;

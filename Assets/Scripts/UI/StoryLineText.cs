@@ -18,6 +18,7 @@ public class StoryLineText : MonoBehaviour
         
         if (icon != null)
         {
+            icon.sprite = line.speakerIcon;
             icon.color = line.color;
         }
         

@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MatchPairs : MonoBehaviour
+public class MatchPairs : MonoBehaviour, IMatchPairs
 {
     public List<MatchPairsExercise> matchPairsExercises;
     public Transform leftParent;

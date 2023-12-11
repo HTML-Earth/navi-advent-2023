@@ -14,26 +14,33 @@ public class Story : MonoBehaviour
     public AudioClip victorySound;
 
     GameObject _continueButton;
+    GameObject _quitButton;
     Transform _parent;
     ScrollRect _scrollRect;
     AudioSource _source;
 
+    GameObject _storyTitlePrefab;
     GameObject _storyLinePrefab;
     GameObject _storySpeakerLinePrefab;
     GameObject _storyQuestionPrefab;
+    GameObject _storyWordPairsPrefab;
 
     Queue<StoryPart> parts;
 
     bool _instantText;
+    bool _instantContinueNextTime;
 
     void Awake()
     {
         _continueButton = transform.Find("Continue").gameObject;
+        _quitButton = transform.Find("Quit").gameObject;
         _parent = transform.Find("Scroll View/Viewport/Content");
         _scrollRect = transform.Find("Scroll View").GetComponent<ScrollRect>();
+        _storyTitlePrefab = Resources.Load<GameObject>("Prefabs/StoryTitle");
         _storyLinePrefab = Resources.Load<GameObject>("Prefabs/StoryLine");
         _storySpeakerLinePrefab = Resources.Load<GameObject>("Prefabs/StorySpeakerLine");
         _storyQuestionPrefab = Resources.Load<GameObject>("Prefabs/StoryQuestion");
+        _storyWordPairsPrefab = Resources.Load<GameObject>("Prefabs/StoryWordPairs");
         
         _source = GetComponent<AudioSource>();
         if (!Settings.current.GetSoundEnabled())
@@ -59,6 +66,7 @@ public class Story : MonoBehaviour
         if (parts.Count < 1)
             return;
         
+        _instantContinueNextTime = false;
         _continueButton.SetActive(false);
         
         var nextPart = parts.Dequeue();
@@ -68,8 +76,11 @@ public class Story : MonoBehaviour
         {
             case StoryLine line:
             {
+                if (line.instantContinue)
+                    _instantContinueNextTime = true;
+                
                 var hasSpeaker = line.speakerName != "";
-                prefab = Instantiate(hasSpeaker ? _storySpeakerLinePrefab : _storyLinePrefab, _parent);
+                prefab = Instantiate(line.isTitle ? _storyTitlePrefab : hasSpeaker ? _storySpeakerLinePrefab : _storyLinePrefab, _parent);
                 var lineUi = prefab.GetComponent<StoryLineText>();
                 if (line.audio != null)
                 {
@@ -83,23 +94,45 @@ public class Story : MonoBehaviour
                 prefab = Instantiate(_storyQuestionPrefab, _parent);
                 
                 var questionUi = prefab.GetComponent<StoryQuestionText>();
-                questionUi.Play(question);
+                questionUi.Play(question, this);
                 
                 prefab.GetComponent<VerticalLayoutGroup>().CalculateLayoutInputVertical() ;
                 prefab.GetComponent<ContentSizeFitter>().SetLayoutVertical() ;
+                break;
+            
+            case StoryWordPairs wordPairs:
+                _instantContinueNextTime = true;
+                
+                prefab = Instantiate(_storyWordPairsPrefab, _parent);
+                
+                var storyMiniWordPairs = prefab.GetComponent<StoryMiniWordPairs>();
+                storyMiniWordPairs.Play(wordPairs, this);
                 break;
         }
         
         if (prefab == null)
             return;
+        
+        Scroll();
+    }
 
+    public void Scroll(bool fixEmpty = false)
+    {
+        if (fixEmpty)
+        {
+            var placeholder = Instantiate(_storyLinePrefab, _parent);
+            Destroy(placeholder);
+        }   
+        
         Canvas.ForceUpdateCanvases();
 
-        _scrollRect.content.GetComponent<VerticalLayoutGroup>().CalculateLayoutInputVertical() ;
-        _scrollRect.content.GetComponent<ContentSizeFitter>().SetLayoutVertical() ;
+        _scrollRect.content.GetComponent<VerticalLayoutGroup>().CalculateLayoutInputVertical();
+        _scrollRect.content.GetComponent<ContentSizeFitter>().SetLayoutVertical();
 
-        //_scrollRect.verticalNormalizedPosition = 0 ;
-        StartCoroutine(ScrollToBottom());
+        if (fixEmpty)
+            _scrollRect.verticalNormalizedPosition = 0;
+        else
+            StartCoroutine(ScrollToBottom());
     }
 
     IEnumerator ScrollToBottom()
@@ -118,7 +151,16 @@ public class Story : MonoBehaviour
 
     public void DisplayContinueButton()
     {
-        _continueButton.SetActive(true);
+        if (_instantContinueNextTime)
+        {
+            NextPart();
+            return;
+        }
+        
+        if (parts.Count < 1)
+            _quitButton.SetActive(true);
+        else
+            _continueButton.SetActive(true);
     }
 
     public bool InstantText()
