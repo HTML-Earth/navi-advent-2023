@@ -15,7 +15,13 @@ MonoBehaviour:
   speakerName: '''Ata'
   line: "Tam. Srake lu ngaru lahea s\xE4mok?"
   instantContinue: 0
+  isTitle: 0
   color: {r: 1, g: 1, b: 1, a: 1}
   speakerIcon: {fileID: 21300000, guid: 0aa11172dd6c92f448455d0bb0fb0cb5, type: 3}
-  audio: {fileID: 0}
-  highlightTimings: []
+  audio: {fileID: 8300000, guid: a3e5248b81fa79d4b9d70a2a71d77ce3, type: 3}
+  highlightTimings:
+  - 0.791
+  - 0.54
+  - 0.177
+  - 0.4
+  - 0.4
