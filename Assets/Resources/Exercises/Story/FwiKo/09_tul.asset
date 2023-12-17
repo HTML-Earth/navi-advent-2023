@@ -14,7 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speakerName: 
   line: "Sulan ts\xECk tul ulte mawkrr t\xE4txaw tengkrr herena zumit."
+  instantContinue: 0
+  isTitle: 0
   color: {r: 1, g: 1, b: 1, a: 1}
   speakerIcon: {fileID: 0}
-  audio: {fileID: 0}
-  highlightTimings: []
+  audio: {fileID: 8300000, guid: bc5d21c6954fa6047b2e7a9e36769a04, type: 3}
+  highlightTimings:
+  - 0.798
+  - 0.44
+  - 0.776
+  - 0.355
+  - 1.02
+  - 0.996
+  - 0.781
+  - 0.63

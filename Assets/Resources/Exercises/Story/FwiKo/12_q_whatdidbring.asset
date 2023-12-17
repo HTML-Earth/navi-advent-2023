@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e6472f6efbd421f80b8795af72ad5f5, type: 3}
   m_Name: 12_q_whatdidbring
   m_EditorClassIdentifier: 
-  question: What did Sulan bring?
+  question: What did Sulan bring to slide on?
   answers:
-  - A Bag
+  - A bag
   - A shield
   - A chair
   - A hammock
   correctAnswer: 3
-  answerExplanation: And if they get tired, they can sleep in it.
+  answerExplanation: A hammock. And if they get tired, they can sleep in it.
