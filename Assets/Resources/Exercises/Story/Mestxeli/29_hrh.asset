@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 375c641179384243a3595243379dd651, type: 3}
-  m_Name: 28_a_memikyunti
+  m_Name: 29_hrh
   m_EditorClassIdentifier: 
-  speakerName: '''Ata'
-  line: "Fu sweylu txo tiv\xECng memikyunti amip f\xECtsap."
-  instantContinue: 0
+  speakerName: Mefo
+  line: (herangheiam)
+  instantContinue: 1
   isTitle: 0
   color: {r: 1, g: 1, b: 1, a: 1}
   speakerIcon: {fileID: 21300000, guid: 0aa11172dd6c92f448455d0bb0fb0cb5, type: 3}
-  audio: {fileID: 0}
+  audio: {fileID: 8300000, guid: b9fdb7c00331f254495604cd5c4321a1, type: 3}
   highlightTimings: []

@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e6472f6efbd421f80b8795af72ad5f5, type: 3}
   m_Name: 08_x_light
   m_EditorClassIdentifier: 
-  question: What are 'Ata and Sulan missing?
+  question: What is going on?
   answers:
-  - A chair
-  - Something to slide on
-  - A thing that sits
-  - An idea
-  correctAnswer: 1
-  answerExplanation: They want something to sit on while sliding.
+  - Sulan is guessing what the gift is
+  - '''Ata has received a feather'
+  - '''Ata guesses that the gift is a feather'
+  - Sulan says it's full of flour
+  correctAnswer: 2
+  answerExplanation: '''Ata jokes that it''s a feather, and Sulan says it''s not
+    <i>that</i> light.'

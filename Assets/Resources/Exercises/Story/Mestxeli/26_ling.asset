@@ -13,10 +13,16 @@ MonoBehaviour:
   m_Name: 26_ling
   m_EditorClassIdentifier: 
   speakerName: 
-  line: "Kenten l\xECng ka mo.\nUlte plltxe mefo."
+  line: "Kenten l\xECng ka mo. \nUlte plltxe mefo."
   instantContinue: 0
   isTitle: 0
   color: {r: 1, g: 1, b: 1, a: 1}
   speakerIcon: {fileID: 0}
   audio: {fileID: 8300000, guid: 39b3e85042b134842a0dac952aba0fe2, type: 3}
-  highlightTimings: []
+  highlightTimings:
+  - 0.74
+  - 0.542
+  - 0.232
+  - 1.022
+  - 0.682
+  - 0.89

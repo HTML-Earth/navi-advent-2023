@@ -13,10 +13,21 @@ MonoBehaviour:
   m_Name: 18_renten
   m_EditorClassIdentifier: 
   speakerName: 
-  line: "'Awlo pol pamlltxe fayluta new rententi.\nHa f\xECstxeliri po ke lu alaksi."
+  line: "'Awlo pol pamlltxe fayluta new rententi. \nHa f\xECstxeliri po ke lu alaksi."
   instantContinue: 0
   isTitle: 0
   color: {r: 1, g: 1, b: 1, a: 1}
   speakerIcon: {fileID: 0}
   audio: {fileID: 8300000, guid: 7de84480ce9a5114693231515d8cb171, type: 3}
-  highlightTimings: []
+  highlightTimings:
+  - 0.677
+  - 0.304
+  - 0.764
+  - 0.817
+  - 0.37
+  - 1.5
+  - 0.267
+  - 1.367
+  - 0.211
+  - 0.158
+  - 0.158

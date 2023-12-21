@@ -13,10 +13,16 @@ MonoBehaviour:
   m_Name: 04_stereftxaw
   m_EditorClassIdentifier: 
   speakerName: 
-  line: "Stxereftxaw stxelit 'Atal.\nSrake lu pey\xE4 s\xE4rangal?"
+  line: "Stxereftxaw stxelit 'Atal. \nSrake lu pey\xE4 s\xE4rangal?"
   instantContinue: 0
   isTitle: 0
   color: {r: 1, g: 1, b: 1, a: 1}
   speakerIcon: {fileID: 0}
   audio: {fileID: 8300000, guid: 174726fddc5ac36469a3bd5a581f144a, type: 3}
-  highlightTimings: []
+  highlightTimings:
+  - 1.147
+  - 1.033
+  - 1.203
+  - 0.648
+  - 0.238
+  - 0.476

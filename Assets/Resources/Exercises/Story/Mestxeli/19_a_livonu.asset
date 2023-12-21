@@ -18,5 +18,5 @@ MonoBehaviour:
   isTitle: 0
   color: {r: 1, g: 1, b: 1, a: 1}
   speakerIcon: {fileID: 21300000, guid: 0aa11172dd6c92f448455d0bb0fb0cb5, type: 3}
-  audio: {fileID: 0}
+  audio: {fileID: 8300000, guid: 1b31c62cc2f381045b1d436ba2890577, type: 3}
   highlightTimings: []

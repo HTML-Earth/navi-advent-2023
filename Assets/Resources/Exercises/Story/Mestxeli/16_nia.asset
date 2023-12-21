@@ -13,10 +13,18 @@ MonoBehaviour:
   m_Name: 16_nia
   m_EditorClassIdentifier: 
   speakerName: 
-  line: "Sulan\xECl sney\xE4 stxelit ni\xE4.\nKxawm f\xECkem n\xEC'it lu kemwi\xE4."
+  line: "Sulan\xECl sney\xE4 stxelit ni\xE4. \nKxawm f\xECkem n\xEC'it lu kemwi\xE4."
   instantContinue: 0
   isTitle: 0
   color: {r: 1, g: 1, b: 1, a: 1}
   speakerIcon: {fileID: 0}
   audio: {fileID: 8300000, guid: 2014c9e2191ed95488b3b4af53dc6355, type: 3}
-  highlightTimings: []
+  highlightTimings:
+  - 0.992
+  - 0.662
+  - 0.872
+  - 1.093
+  - 0.488
+  - 0.763
+  - 0.654
+  - 0.204

@@ -13,10 +13,20 @@ MonoBehaviour:
   m_Name: 10_loho
   m_EditorClassIdentifier: 
   speakerName: 
-  line: "'Ataru stxeli loho.\nSl\xE4 lun ke lu fwa stxeli lu syo."
+  line: "'Ataru stxeli loho. \nSl\xE4 lun ke lu fwa stxeli lu syo."
   instantContinue: 0
   isTitle: 0
   color: {r: 1, g: 1, b: 1, a: 1}
   speakerIcon: {fileID: 0}
   audio: {fileID: 8300000, guid: 873ed65b8ff819144ad0e003d71ecacd, type: 3}
-  highlightTimings: []
+  highlightTimings:
+  - 0.676
+  - 0.746
+  - 1.05
+  - 0.273
+  - 0.4
+  - 0.17
+  - 0.154
+  - 0.36
+  - 0.737
+  - 0.173

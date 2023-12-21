@@ -13,10 +13,17 @@ MonoBehaviour:
   m_Name: 01_intro
   m_EditorClassIdentifier: 
   speakerName: 
-  line: "Ftxoz\xE4 leiu.\nPiak seri 'Ata s\xEC Sulan aystxeliru."
+  line: "Ftxoz\xE4 leiu. \nPiak seri 'Ata s\xEC Sulan aystxeliru."
   instantContinue: 0
   isTitle: 0
   color: {r: 1, g: 1, b: 1, a: 1}
   speakerIcon: {fileID: 0}
   audio: {fileID: 8300000, guid: aea39bae568dc714bb08c2ed8f7dd9be, type: 3}
-  highlightTimings: []
+  highlightTimings:
+  - 0.75
+  - 0.955
+  - 0.4
+  - 0.727
+  - 0.535
+  - 0.29
+  - 0.797
