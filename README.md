@@ -11,6 +11,8 @@ It includes these exercise types:
 * Drag and drop words and affixes to form a sentence
 * Listen to a story and answer questions
 
+The UI was made to fit a square aspect ratio, so it might look wrong otherwise.
+
 ## Third party resources:
 
 Roboto by Google (Apache License 2.0)
