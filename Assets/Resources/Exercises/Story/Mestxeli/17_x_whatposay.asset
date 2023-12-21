@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   question: 
   answers:
-  - "Srake stxeli r\xECmikx?"
   - Fratawtxew li rikx?
+  - "Srake stxeli r\xECmikx?"
   - "Srake stxenut\xECng n\xECkx?"
-  correctAnswer: 0
+  correctAnswer: 1
   answerExplanation: 

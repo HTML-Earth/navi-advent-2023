@@ -19,4 +19,8 @@ MonoBehaviour:
   color: {r: 1, g: 1, b: 1, a: 1}
   speakerIcon: {fileID: 21300000, guid: 0aa11172dd6c92f448455d0bb0fb0cb5, type: 3}
   audio: {fileID: 8300000, guid: 31a6093f60b80464b84528287dfd7977, type: 3}
-  highlightTimings: []
+  highlightTimings:
+  - 0.886
+  - 0.348
+  - 0.466
+  - 0.286

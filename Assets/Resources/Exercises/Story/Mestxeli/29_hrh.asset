@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speakerName: Mefo
   line: (herangheiam)
-  instantContinue: 1
+  instantContinue: 0
   isTitle: 0
   color: {r: 1, g: 1, b: 1, a: 1}
-  speakerIcon: {fileID: 21300000, guid: 0aa11172dd6c92f448455d0bb0fb0cb5, type: 3}
+  speakerIcon: {fileID: 21300000, guid: 65d511c98eb38c34dbaff125ef40cdaa, type: 3}
   audio: {fileID: 8300000, guid: b9fdb7c00331f254495604cd5c4321a1, type: 3}
   highlightTimings: []
