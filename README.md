@@ -5,6 +5,12 @@ https://html-earth.itch.io/navi-advent-2023
 
 This project uses Unity `2022.3.6f1` and might rely a bit too much on scriptable objects :P
 
+It includes these exercise types:
+* Match word pairs
+* Guess words like the game Hangman
+* Drag and drop words and affixes to form a sentence
+* Listen to a story and answer questions
+
 ## Third party resources:
 
 Roboto by Google (Apache License 2.0)
