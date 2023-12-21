@@ -158,7 +158,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -10, y: 0}
-  m_SizeDelta: {x: -20, y: 1170}
+  m_SizeDelta: {x: -20, y: 1280}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &31891315
 MonoBehaviour:
@@ -188,7 +188,8 @@ MonoBehaviour:
     Aean for the Na'vi Wordle clone which I stole the keyboard layout from: (tirea.learnnavi.org/wordle)\n\n<size=42><color=white>Resources
     used:</color></size>\nBetter Minimal WebGL Template by Sean\n<size=30>https://seansleblanc.itch.io/better-minimal-webgl-template</size>\n\nRoboto
     by Google (Apache License 2.0)\nhttps://fonts.google.com/specimen/Roboto\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nSurface-Medium
-    by Bruno Herfst\nhttps://www.dafont.com/surface.font"
+    by Bruno Herfst\nhttps://www.dafont.com/surface.font\n\nThe kenten sound was
+    recorded from Avatar (2009)\nwhich is owned by Disney and Lightstorm."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a91808df718631d44929b9eacc9f1874, type: 2}
   m_sharedMaterial: {fileID: 1504118155733256268, guid: a91808df718631d44929b9eacc9f1874, type: 2}
@@ -393,7 +394,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 906237365}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.6837607
+  m_Size: 0.625
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 375c641179384243a3595243379dd651, type: 3}
+  m_Name: 31_k_hayalovay
+  m_EditorClassIdentifier: 
+  speakerName: Kenten
+  line: (Hayalovay!)
+  instantContinue: 0
+  isTitle: 0
+  color: {r: 1, g: 1, b: 1, a: 1}
+  speakerIcon: {fileID: 21300000, guid: 3e73cc147742fea478b44c9492b5abeb, type: 3}
+  audio: {fileID: 8300000, guid: 8546680b658a6b845a3ce21c6d50d4b7, type: 3}
+  highlightTimings: []
