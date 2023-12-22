@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 19_a_livonu
   m_EditorClassIdentifier: 
   speakerName: '''Ata'
-  line: "Stolawm futa ngal new f\xEC'ut. Sl\xE4 sweylu txo pot livonu mawkrr."
+  line: "Stolawm futa ngal new f\xEC'ut. \nSl\xE4 sweylu txo pot livonu mawkrr."
   instantContinue: 0
   isTitle: 0
   color: {r: 1, g: 1, b: 1, a: 1}
